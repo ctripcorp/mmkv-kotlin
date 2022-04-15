@@ -1,0 +1,146 @@
+# MMKV For Kotlin Multiplatform
+
+MMKV for Kotlin Multiplatform 是对 [MMKV](https://github.com/Tencent/MMKV) 的 Kotlin API 封装，由携程机票移动端团队开发。当前仅支持 KMM（Android/iOS），后续可能会逐步扩大至 macOS、Win32、POSIX 等 MMKV 支持的所有平台。
+
+## 使用指南
+
+### 在 Gradle 中使用 Maven 安装引入
+
+Kotlin Multiplatform Common (kts):
+
+```kotlin
+dependencies { 
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.0.0")
+}
+```
+
+当前版本依赖于 `Kotlin 1.6.10` 以及 `MMKV 1.2.12`。
+
+纯 Android 平台（kts）：
+
+```kotlin
+dependencies { 
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.0.0")
+}
+```
+
+### 初始化与配置根目录
+
+可在 App 或进程启动时初始化 MMKV。由于 [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) 的初始化 API 依赖 [MMKV](https://github.com/Tencent/MMKV)，因此 Android 与 iOS 平台初始化 API 有所不同。
+
+Android:
+
+```kotlin
+import com.ctrip.flight.mmkv.initialize
+
+// In Android source set
+fun initializeMMKV(context: Context) {
+    val rootDir = initialize(context)
+    Log.d("MMKV Path", rootDir)
+}
+```
+
+iOS:
+
+```kotlin
+import com.ctrip.flight.mmkv.initialize
+
+// In iOS source set
+fun initializeMMKV(rootDir: String) {
+    initialize(rootDir)
+    Log.d("MMKV Path", rootDir)
+}
+```
+
+当然，您也可以在您的 Android 或 iOS app 工程中调用 [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV)（Java）或 [MMKV-iOS](https://github.com/Tencent/MMKV/tree/master/iOS)（Objective-C）的初始化 API 完成初始化。
+
+### CRUD 操作
+
+- MMKV 提供一个**全局的实例**，可以直接使用：
+
+```kotlin
+import com.ctrip.flight.mmkv.defaultMMKV
+
+fun demo() {
+    val kv = defaultMMKV()
+
+    kv.set("Boolean", true)
+    println("Boolean: ${kv.takeBoolean("Boolean")}")
+
+    kv.set("Int", Int.MIN_VALUE)
+    println("Int: ${kv.takeInt("Int")}")
+
+    kv.set("Long", Long.MAX_VALUE)
+    println("Long: ${kv.takeLong("Long")}")
+
+    kv.set("Float", -3.14f)
+    println("Float: ${kv.takeFloat("Float")}")
+
+    kv.set("Double", Double.MIN_VALUE)
+    println("Double: ${kv.takeDouble("Double")}")
+
+    kv.set("String", "Hello from mmkv")
+    println("String: ${kv.takeString("String")}")
+
+    val bytes = byteArrayOf(
+        'm'.code.toByte(), 
+        'm'.code.toByte(), 
+        'k'.code.toByte(), 
+        'v'.code.toByte(),
+    )
+    kv.set("ByteArray", bytes)
+    println("ByteArray: ${kv.takeByteArray("ByteArray")?.toString()}")
+}
+```
+
+- **删除 & 查询：**
+
+```kotlin
+kv.removeValueForKey("Boolean")
+println("Boolean: ${kv.takeBoolean("Boolean")}")
+
+kv.removeValuesForKeys(listOf("Int", "Long"))
+println("allKeys: ${kv.allKeys()}")
+
+val hasBoolean = kv.containsKey("Boolean")
+```
+
+- 如果不同业务需要**区别存储**，也可以单独创建自己的实例：
+
+```kotlin
+import com.ctrip.flight.mmkv.mmkvWithID
+...
+val kvWithMyId = mmkvWithID("MyID")
+kvWithMyId.set("Boolean", true)
+```
+
+- 如果业务需要**多进程访问**，那么在初始化的时候加上标志位 `MMKV.MULTI_PROCESS_MODE`：
+
+```kotlin
+import com.ctrip.flight.mmkv.mmkvWithID
+import com.ctrip.flight.mmkv.MMKVModel
+
+...
+val kvMultiProcess = mmkvWithID("InterProcessKV", MMKVModel.MULTI_PROCESS)
+kvMultiProcess.set("Boolean", true)
+```
+
+## 支持的数据类型
+
+* 在 Kotlin Multiplatform common source set 中支持以下 Kotlin 类型：
+  * `Boolean、Int、Long、Float、Double、String、UInt、ULong、ByteArray、Set<String>`
+ 
+
+* 在 Android source set 中额外支持以下类型：
+  * `Parcelable 的实现者`
+
+
+* 在 iOS source set 中额外支持以下类型：
+  * `NSDate 以及 NSCoding 协议的实现者`
+
+
+## 注意
+ 
+- MMKV-Kotlin 暂时不支持从 SharedPreferences 与 NSUserDefaults 中迁移旧数据。
+
+- MMKV-Kotlin 在 iOS 平台上基于旧的 Kotlin/Native 内存管理模型，我们计划在 Kotlin/Native 新内存管理模型正式发行后向其进行迁移。
