@@ -1,4 +1,4 @@
-# MMKV For Kotlin Multiplatform
+# MMKV for Kotlin Multiplatform
 
 MMKV for Kotlin Multiplatform 是对 [MMKV](https://github.com/Tencent/MMKV) 的 Kotlin API 封装，由携程机票移动端团队开发。当前仅支持 KMM（Android/iOS），后续可能会逐步扩大至 macOS、Win32、POSIX 等 MMKV 支持的所有平台。
 
@@ -144,3 +144,9 @@ kvMultiProcess.set("Boolean", true)
 - MMKV-Kotlin 暂时不支持从 SharedPreferences 与 NSUserDefaults 中迁移旧数据。
 
 - MMKV-Kotlin 在 iOS 平台上基于旧的 Kotlin/Native 内存管理模型，我们计划在 Kotlin/Native 新内存管理模型正式发行后向其进行迁移。
+
+## 开源许可
+
+本项目于 [Apache License, Version 2.0](https://github.com/aws/jsii/tree/main/packages/jsii-reflect#license) 协议下开源。
+
+查看 [LICENSE](LICENSE.txt) 获取更多信息。

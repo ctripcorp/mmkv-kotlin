@@ -1,4 +1,4 @@
-# MMKV For Kotlin Multiplatform
+# MMKV for Kotlin Multiplatform
 
 中文版本请参看[这里](README_CN.md)
 
@@ -146,3 +146,9 @@ kvMultiProcess.set("Boolean", true)
 - MMKV-Kotlin currently does not support migrating old data from SharedPreferences and NSUserDefaults.
 
 - MMKV-Kotlin is based on old Kotlin/Native memory management in iOS，We plan to migrate to Kotlin/Native's new memory management when it is released.
+
+## License
+
+Distributed under the [Apache License, Version 2.0](https://github.com/aws/jsii/tree/main/packages/jsii-reflect#license).
+
+See [LICENSE](LICENSE.txt) for more information.
