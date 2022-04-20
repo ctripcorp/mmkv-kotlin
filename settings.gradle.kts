@@ -7,7 +7,7 @@ pluginManagement {
 }
 
 rootProject.name = "MMKV-Kotlin"
-include(":MMKV-Kotlin")
+include(":mmkv-kotlin")
 
 plugins {
     id("com.gradle.enterprise") version("3.7")

@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'MMKV_Kotlin'
+    spec.name                     = 'mmkv_kotlin'
     spec.version                  = '1.0.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
@@ -16,13 +16,13 @@ Pod::Spec.new do |spec|
     spec.dependency 'MMKV', '1.2.12'
 
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':MMKV-Kotlin',
-        'PRODUCT_MODULE_NAME' => 'MMKV_Kotlin',
+        'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin',
+        'PRODUCT_MODULE_NAME' => 'mmkv_kotlin',
     }
 
     spec.script_phases = [
         {
-            :name => 'Build MMKV_Kotlin',
+            :name => 'Build mmkv_kotlin',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT

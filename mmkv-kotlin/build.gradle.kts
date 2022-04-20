@@ -4,10 +4,18 @@ plugins {
     id("com.android.library")
     id("kotlin-parcelize")
     id("maven-publish")
+    signing
 }
 
 version = "1.0.0"
 group = "com.ctrip.flight.mmkv"
+
+val NEXUS_USERNAME: String by project
+val NEXUS_PASSWORD: String by project
+
+val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
 
 kotlin {
     android {
@@ -24,19 +32,43 @@ kotlin {
     }
 
     publishing {
-        publications {
-            val publicationsFromMainHost = listOf(android()).map { it.name } + "kotlinMultiplatform"
-            matching { it.name in publicationsFromMainHost }.all {
-                val targetPublication = this@all
-                tasks.withType<AbstractPublishToMaven>()
-                    .matching { it.publication == targetPublication }
-                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+        publications.withType<MavenPublication> {
+            artifact(javadocJar)
+            with(pom) {
+                name.set("MMKV-Kotlin")
+                description.set("MMKV for Kotlin Multiplatform")
+                url.set("https://github.com/ctripcorp/mmkv-kotlin")
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("qiaoyuang")
+                        name.set("Yuang Qiao")
+                        email.set("qiaoyuang2012@gmail.com")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/ctripcorp/mmkv-kotlin")
+                    connection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
+                    developerConnection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
+                }
             }
         }
         repositories {
             maven {
-                // 审核通过后补充...
+                credentials {
+                    username = NEXUS_USERNAME
+                    password = NEXUS_PASSWORD
+                }
+                url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
             }
+        }
+        signing {
+            sign(publishing.publications)
         }
     }
 
