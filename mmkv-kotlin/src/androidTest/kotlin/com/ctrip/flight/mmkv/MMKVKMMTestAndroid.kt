@@ -106,7 +106,7 @@ class MMKVKotlinTestAndroid {
 
     @Test
     fun testIPCUpdateInt() {
-        val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVModel.MULTI_PROCESS)
+        val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVMode.MULTI_PROCESS)
         mmkv.set(MMKVTestService.SharedMMKVKey, 1024)
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val intent = Intent(context, MMKVTestService::class.java)
@@ -126,7 +126,7 @@ class MMKVKotlinTestAndroid {
         context.startService(intent)
 
         SystemClock.sleep(1000 * 3)
-        val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVModel.MULTI_PROCESS) as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
+        val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVMode.MULTI_PROCESS) as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
         val result0 = mmkv.tryLock()
         assertEquals(result0, false)
 

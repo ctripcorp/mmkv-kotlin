@@ -29,10 +29,10 @@ actual fun defaultMMKV(cryptKey: String): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV(M
 
 actual fun mmkvWithID(
     mmapId: String,
-    model: MMKVModel,
+    mode: MMKVMode,
     cryptKey: String?,
     rootPath: String?,
-): MMKV_KMP = MMKVImpl(MMKV.mmkvWithID(mmapId, model.rawValue, cryptKey, rootPath))
+): MMKV_KMP = MMKVImpl(MMKV.mmkvWithID(mmapId, mode.rawValue, cryptKey, rootPath))
 
 fun mmkvWithAchemaID(
     mmapID: String,
@@ -45,9 +45,9 @@ fun mmkvWithAchemaID(
 
 fun backedUpMMKVWithID(
     mmapID: String,
-    model: MMKVModel,
+    mode: MMKVMode,
     cryptKey: String?,
     rootPath: String,
 ): MMKV_KMP = MMKVImpl(MMKV.backedUpMMKVWithID(
-    mmapID, model.rawValue, cryptKey, rootPath,
+    mmapID, mode.rawValue, cryptKey, rootPath,
 ))

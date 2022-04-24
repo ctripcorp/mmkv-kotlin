@@ -30,7 +30,7 @@ expect fun defaultMMKV(cryptKey: String): MMKV_KMP
 @JvmOverloads
 expect fun mmkvWithID(
     mmapId: String,
-    model: MMKVModel = MMKVModel.SINGLE_PROCESS,
+    mode: MMKVMode = MMKVMode.SINGLE_PROCESS,
     cryptKey: String? = null,
     rootPath: String? = null,
 ): MMKV_KMP

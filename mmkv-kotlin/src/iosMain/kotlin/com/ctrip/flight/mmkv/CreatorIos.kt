@@ -33,7 +33,7 @@ actual fun defaultMMKV(cryptKey: String): MMKV_KMP =
 
 actual fun mmkvWithID(
     mmapId: String,
-    model: MMKVModel,
+    mode: MMKVMode,
     cryptKey: String?,
     rootPath: String?,
 ): MMKV_KMP {
@@ -53,7 +53,7 @@ actual fun mmkvWithID(
         )
         cryptKey == null && rootPath == null -> MMKV.mmkvWithID(
             mmapId,
-            model.rawValue,
+            mode.rawValue,
         )
         else -> throw IllegalStateException("Impossible situation")
     }!!

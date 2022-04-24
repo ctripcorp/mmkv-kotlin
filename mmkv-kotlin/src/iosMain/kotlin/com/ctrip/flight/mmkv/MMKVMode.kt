@@ -17,17 +17,17 @@
 package com.ctrip.flight.mmkv
 
 /**
- * MMKV model Android actual
+ * MMKV model iOS actual
  * @author yaqiao
  */
 
-actual enum class MMKVModel {
+actual enum class MMKVMode {
     SINGLE_PROCESS {
-        override val rawValue: Int = 1
+        override val rawValue: ULong = 0x1.toULong()
     },
     MULTI_PROCESS {
-        override val rawValue: Int = 2
+        override val rawValue: ULong = 0x2.toULong()
     };
 
-    abstract val rawValue: Int
+    abstract val rawValue: ULong
 }

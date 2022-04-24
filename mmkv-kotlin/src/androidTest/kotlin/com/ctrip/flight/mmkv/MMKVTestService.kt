@@ -44,12 +44,12 @@ class MMKVTestService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        val mmkv = mmkvWithID(SharedMMKVID, MMKVModel.MULTI_PROCESS) as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
+        val mmkv = mmkvWithID(SharedMMKVID, MMKVMode.MULTI_PROCESS) as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
         val cmd = intent.getStringExtra(CMD_Key)
         when (cmd) {
             CMD_Update -> {
                 val value = mmkv.takeInt(SharedMMKVKey)
-                mmkv.set(SharedMMKVKey, value + 1)
+                mmkv[SharedMMKVKey] = value + 1
             }
             CMD_Lock -> mmkv.lock()
             CMD_Kill -> stopSelf()

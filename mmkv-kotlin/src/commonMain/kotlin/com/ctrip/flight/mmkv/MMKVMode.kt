@@ -21,7 +21,7 @@ package com.ctrip.flight.mmkv
  * @author yaqiao
  */
 
-expect enum class MMKVModel {
+expect enum class MMKVMode {
     SINGLE_PROCESS,
     MULTI_PROCESS,
 }
