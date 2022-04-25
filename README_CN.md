@@ -10,17 +10,17 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.0.0")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.1.0")
 }
 ```
 
-当前版本依赖于 `Kotlin 1.6.10` 以及 `MMKV 1.2.12`。
+当前版本依赖于 `Kotlin 1.6.21` 以及 `MMKV 1.2.13`。
 
 纯 Android 平台（kts）：
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.0.0")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.1.0")
 }
 ```
 

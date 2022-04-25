@@ -1,25 +1,21 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin'
-    spec.version                  = '1.0.0'
+    spec.version                  = '1.1.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
-    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
+    spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
-
-    spec.vendored_frameworks      = "build/cocoapods/framework/MMKV-Kotlin.framework"
-    spec.libraries                = "c++"
-    spec.module_name              = "#{spec.name}_umbrella"
-
+    spec.vendored_frameworks      = 'build/cocoapods/framework/MMKV-Kotlin.framework'
+    spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.1'
-
-    spec.dependency 'MMKV', '1.2.12'
-
+    spec.dependency 'MMKV', '1.2.13'
+                
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin',
-        'PRODUCT_MODULE_NAME' => 'mmkv_kotlin',
+        'PRODUCT_MODULE_NAME' => 'MMKV-Kotlin',
     }
-
+                
     spec.script_phases = [
         {
             :name => 'Build mmkv_kotlin',
@@ -35,8 +31,9 @@ Pod::Spec.new do |spec|
                 "$REPO_ROOT/../gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
-                    -Pkotlin.native.cocoapods.configuration=$CONFIGURATION
+                    -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
             SCRIPT
         }
     ]
+                
 end
