@@ -83,7 +83,7 @@ interface MMKV_KMP {
      * Size
      */
 
-    val actualSize: Long
+    // val actualSize: Long
 
     val count: Long
 

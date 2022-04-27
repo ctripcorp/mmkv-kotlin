@@ -23,16 +23,16 @@ import com.tencent.mmkv.MMKV
  * @author yaqiao
  */
 
-actual fun defaultMMKV(): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV())
+actual fun defaultMMKV(): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV()!!)
 
-actual fun defaultMMKV(cryptKey: String): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV(MMKV.SINGLE_PROCESS_MODE, cryptKey))
+actual fun defaultMMKV(cryptKey: String): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV(MMKV.SINGLE_PROCESS_MODE, cryptKey)!!)
 
 actual fun mmkvWithID(
     mmapId: String,
     mode: MMKVMode,
     cryptKey: String?,
     rootPath: String?,
-): MMKV_KMP = MMKVImpl(MMKV.mmkvWithID(mmapId, mode.rawValue, cryptKey, rootPath))
+): MMKV_KMP = MMKVImpl(MMKV.mmkvWithID(mmapId, mode.rawValue, cryptKey, rootPath)!!)
 
 fun mmkvWithAchemaID(
     mmapID: String,
@@ -43,11 +43,11 @@ fun mmkvWithAchemaID(
     mmapID, fd, metaFD, cryptKey,
 ))
 
-fun backedUpMMKVWithID(
+/*fun backedUpMMKVWithID(
     mmapID: String,
     mode: MMKVMode,
     cryptKey: String?,
     rootPath: String,
 ): MMKV_KMP = MMKVImpl(MMKV.backedUpMMKVWithID(
     mmapID, mode.rawValue, cryptKey, rootPath,
-))
+))*/

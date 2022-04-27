@@ -87,8 +87,8 @@ class MMKVImpl internal constructor(internal val platformMMKV: MMKV) : MMKV_KMP 
      * Size
      */
 
-    override val actualSize: Long
-        get() = platformMMKV.actualSize().toLong()
+    /*override val actualSize: Long
+        get() = platformMMKV.actualSize().toLong()*/
 
     override val count: Long
         get() = platformMMKV.count().toLong()

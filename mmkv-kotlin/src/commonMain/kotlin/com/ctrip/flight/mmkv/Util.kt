@@ -22,7 +22,7 @@ package com.ctrip.flight.mmkv
  * @author yaqiao
  */
 
-expect fun backupOneToDirectory(mmapID: String, dstDir: String, rootPath: String?): Boolean
+//expect fun backupOneToDirectory(mmapID: String, dstDir: String, rootPath: String?): Boolean
 
 expect fun pageSize(): Long
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin'
-    spec.version                  = '1.1.0'
+    spec.version                  = '1.1.0-ctrip'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
     spec.vendored_frameworks      = 'build/cocoapods/framework/MMKV-Kotlin.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.1'
-    spec.dependency 'MMKV', '1.2.13'
+    spec.dependency 'MMKV', '1.2.9'
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin',

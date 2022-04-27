@@ -23,9 +23,9 @@ import cocoapods.MMKV.MMKV
  * @author yaqiao
  */
 
-actual fun backupOneToDirectory(
+/*actual fun backupOneToDirectory(
     mmapID: String, dstDir: String, rootPath: String?
-): Boolean = MMKV.backupOneMMKV(mmapID, rootPath, dstDir)
+): Boolean = MMKV.backupOneMMKV(mmapID, rootPath, dstDir)*/
 
 actual fun pageSize(): Long = MMKV.pageSize().toLong()
 
