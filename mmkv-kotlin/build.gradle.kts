@@ -31,47 +31,6 @@ kotlin {
         setupIOSConfig(this)
     }
 
-    publishing {
-        publications.withType<MavenPublication> {
-            artifact(javadocJar)
-            with(pom) {
-                name.set("MMKV-Kotlin")
-                description.set("MMKV for Kotlin Multiplatform")
-                url.set("https://github.com/ctripcorp/mmkv-kotlin")
-                licenses {
-                    license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                    }
-                }
-                developers {
-                    developer {
-                        id.set("qiaoyuang")
-                        name.set("Yuang Qiao")
-                        email.set("qiaoyuang2012@gmail.com")
-                    }
-                }
-                scm {
-                    url.set("https://github.com/ctripcorp/mmkv-kotlin")
-                    connection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
-                    developerConnection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
-                }
-            }
-        }
-        repositories {
-            maven {
-                credentials {
-                    username = NEXUS_USERNAME
-                    password = NEXUS_PASSWORD
-                }
-                url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
-            }
-        }
-        signing {
-            sign(publishing.publications)
-        }
-    }
-
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -159,6 +118,48 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+publishing {
+    publications.withType<MavenPublication> {
+        artifactId
+        artifact(javadocJar)
+        with(pom) {
+            name.set("MMKV-Kotlin")
+            description.set("MMKV for Kotlin Multiplatform")
+            url.set("https://github.com/ctripcorp/mmkv-kotlin")
+            licenses {
+                license {
+                    name.set("The Apache License, Version 2.0")
+                    url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                }
+            }
+            developers {
+                developer {
+                    id.set("qiaoyuang")
+                    name.set("Yuang Qiao")
+                    email.set("qiaoyuang2012@gmail.com")
+                }
+            }
+            scm {
+                url.set("https://github.com/ctripcorp/mmkv-kotlin")
+                connection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
+                developerConnection.set("scm:git:https://github.com/ctripcorp/mmkv-kotlin.git")
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = NEXUS_USERNAME
+                password = NEXUS_PASSWORD
+            }
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2")
+        }
+    }
+    signing {
+        sign(publishing.publications)
     }
 }
 
