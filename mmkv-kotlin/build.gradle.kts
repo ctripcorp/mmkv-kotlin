@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
@@ -7,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.1.0-ctrip"
+version = "1.1.1"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -22,25 +24,32 @@ kotlin {
         publishLibraryVariants("release")
     }
     iosX64 {
-        setupIOSConfig(this)
+        setupNativeConfig(this)
     }
     iosArm64 {
-        setupIOSConfig(this)
+        setupNativeConfig(this)
     }
     iosSimulatorArm64 {
-        setupIOSConfig(this)
+        setupNativeConfig(this)
+    }
+    macosX64 {
+        setupNativeConfig(this)
+    }
+    macosArm64 {
+        setupNativeConfig(this)
     }
 
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
         ios.deploymentTarget = "14.1"
+        osx.deploymentTarget = "12.2.1"
         framework {
             baseName = "MMKV-Kotlin"
         }
         pod(
             name = "MMKV",
-            version = "1.2.9",
+            version = "1.2.13",
         )
     }
     
@@ -56,7 +65,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("com.tencent:mmkv-static:1.2.9")
+                api("com.tencent:mmkv-static:1.2.13")
             }
         }
         val androidTest by getting {
@@ -71,20 +80,28 @@ kotlin {
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
-        val iosMain by creating {
+        val macosX64Main by getting
+        val macosArm64Main by getting
+        val appleMain by creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
+            macosX64Main.dependsOn(this)
+            macosArm64Main.dependsOn(this)
         }
         val iosX64Test by getting
         val iosArm64Test by getting
         val iosSimulatorArm64Test by getting
-        val iosTest by creating {
+        val macosX64Test by getting
+        val macosArm64Test by getting
+        val appleTest by creating {
             dependsOn(commonTest)
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
+            macosX64Test.dependsOn(this)
+            macosArm64Test.dependsOn(this)
         }
     }
 }
@@ -163,8 +180,10 @@ publishing {
     }
 }
 
-fun setupIOSConfig(target: org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-    target.compilations["main"].kotlinOptions.freeCompilerArgs += listOf("-Xallocator=mimalloc", "-Xruntime-logs=gc=info", "-Xexport-kdoc")
+fun setupNativeConfig(target: KotlinNativeTarget) {
+    target.compilations["main"].kotlinOptions.freeCompilerArgs += listOf(
+        "-Xallocator=mimalloc", "-Xruntime-logs=gc=info", "-Xexport-kdoc"
+    )
     target.binaries {
         /*all {
             binaryOptions["memoryModel"] = "experimental"

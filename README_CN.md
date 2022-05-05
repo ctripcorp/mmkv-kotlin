@@ -1,6 +1,6 @@
 # MMKV for Kotlin Multiplatform
 
-MMKV for Kotlin Multiplatform 是对 [MMKV](https://github.com/Tencent/MMKV) 的 Kotlin API 封装，由携程机票移动端团队开发。当前仅支持 KMM（Android/iOS），后续可能会逐步扩大至 macOS。
+MMKV for Kotlin Multiplatform 是对 [MMKV](https://github.com/Tencent/MMKV) 的 Kotlin API 封装，由携程机票移动端团队开发。当前支持 Android/iOS/macOS。
 
 ## 使用指南
 
@@ -10,7 +10,7 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.1.0")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.1.1")
 }
 ```
 
@@ -20,7 +20,7 @@ dependencies {
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.1.0")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.1.1")
 }
 ```
 
