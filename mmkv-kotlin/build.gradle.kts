@@ -24,19 +24,19 @@ kotlin {
         publishLibraryVariants("release")
     }
     iosX64 {
-        setupNativeConfig(this)
+        setupNativeConfig()
     }
     iosArm64 {
-        setupNativeConfig(this)
+        setupNativeConfig()
     }
     iosSimulatorArm64 {
-        setupNativeConfig(this)
+        setupNativeConfig()
     }
     macosX64 {
-        setupNativeConfig(this)
+        setupNativeConfig()
     }
     macosArm64 {
-        setupNativeConfig(this)
+        setupNativeConfig()
     }
 
     cocoapods {
@@ -180,11 +180,11 @@ publishing {
     }
 }
 
-fun setupNativeConfig(target: KotlinNativeTarget) {
-    target.compilations["main"].kotlinOptions.freeCompilerArgs += listOf(
+fun KotlinNativeTarget.setupNativeConfig() {
+    compilations["main"].kotlinOptions.freeCompilerArgs += listOf(
         "-Xallocator=mimalloc", "-Xruntime-logs=gc=info", "-Xexport-kdoc"
     )
-    target.binaries {
+    binaries {
         /*all {
             binaryOptions["memoryModel"] = "experimental"
             binaryOptions["freezing"] = "disabled"
