@@ -24,6 +24,49 @@ dependencies {
 }
 ```
 
+Kotlin/Native on macOS：
+
+```kotlin
+dependencies { 
+    // Intel 芯片
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.1.1")
+    
+    // M1 芯片
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.1.1")
+}
+```
+注意，如果您在目标平台为 macOS 的 Kotlin/Native 可执行程序工程中导入 MMKV-Kotlin，您需要手动在工程中添加对 MMKV 的依赖，并添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
+
+```
+kotlin {
+    macosX64 {
+        binaries {
+            // ......
+            all {
+                val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKV"
+                val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKVCore"
+                linkerOpts += listOf(
+                    "-F$mmkvPath",
+                    "-rpath", mmkvPath,
+                    "-framework", "MMKV",
+                    "-F$mmkvCorePath",
+                    "-rpath", mmkvCorePath,
+                    "-framework", "MMKVCore"
+                )
+            }
+        }
+    }
+    cocoapods {
+        // ......
+        pod(name = "MMKV") {
+            version = "1.2.13"
+            moduleName = "MMKV"
+        }
+    }
+    // ......
+}
+```
+
 ### 初始化与配置根目录
 
 可在 App 或进程启动时初始化 MMKV。由于 [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) 的初始化 API 依赖 [MMKV](https://github.com/Tencent/MMKV)，因此 Android 与 iOS 平台初始化 API 有所不同。

@@ -26,6 +26,49 @@ dependencies {
 }
 ```
 
+Kotlin/Native on macOS：
+
+```kotlin
+dependencies { 
+    // Intel Chip
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.1.1")
+    
+    // M1 Chip
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.1.1")
+}
+```
+Note, if you want to import MMKV-Kotlin to your Kotlin/Native executable project that target is macOS, you need to manually add dependency on MMKV, and add `linkerOpts` on MMKV and MMKVCore：
+
+```
+kotlin {
+    macosX64 {
+        binaries {
+            // ......
+            all {
+                val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKV"
+                val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKVCore"
+                linkerOpts += listOf(
+                    "-F$mmkvPath",
+                    "-rpath", mmkvPath,
+                    "-framework", "MMKV",
+                    "-F$mmkvCorePath",
+                    "-rpath", mmkvCorePath,
+                    "-framework", "MMKVCore"
+                )
+            }
+        }
+    }
+    cocoapods {
+        // ......
+        pod(name = "MMKV") {
+            version = "1.2.13"
+            moduleName = "MMKV"
+        }
+    }
+    // ......
+}
+```
+
 ### Initialization and Configure Root Path
 
 You can initialize MMKV when app or process initialization. [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) initialization API depends on [Context](https://developer.android.com/reference/android/content/Context). So, Android's initialization API is different from iOS.
