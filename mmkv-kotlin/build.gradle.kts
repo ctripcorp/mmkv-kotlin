@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.1.1"
+version = "1.2.0"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -140,7 +140,6 @@ android {
 
 publishing {
     publications.withType<MavenPublication> {
-        artifactId
         artifact(javadocJar)
         with(pom) {
             name.set("MMKV-Kotlin")

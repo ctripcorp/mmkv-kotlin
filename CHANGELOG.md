@@ -1,5 +1,10 @@
 # MMKV-Kotlin Change Log
 
+## v1.2.0/2022-06-13
+
+* Update Kotlin Version
+ * Based on Kotlin 1.7.0 
+
 ## v1.1.1/2022-05-05
 
 * Add the macOS(x64/arm64) supported.
