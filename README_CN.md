@@ -37,14 +37,15 @@ dependencies {
 ```
 注意，如果您在目标平台为 macOS 的 Kotlin/Native 可执行程序工程中导入 MMKV-Kotlin，您需要手动在工程中添加对 MMKV 的依赖，并添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
 
-```
+```kotlin
 kotlin {
     macosX64 {
         binaries {
             // ......
             all {
-                val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKV"
-                val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKVCore"
+              val moduleName = "mmkv_operator"
+              val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/$moduleName/build/Release/MMKV"
+              val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/$moduleName//build/Release/MMKVCore"
                 linkerOpts += listOf(
                     "-F$mmkvPath",
                     "-rpath", mmkvPath,
