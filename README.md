@@ -39,14 +39,15 @@ dependencies {
 ```
 Note, if you want to import MMKV-Kotlin to your Kotlin/Native executable project that target is macOS, you need to manually add dependency on MMKV, and add `linkerOpts` on MMKV and MMKVCore：
 
-```
+```kotlin
 kotlin {
     macosX64 {
         binaries {
             // ......
             all {
-                val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKV"
-                val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/mmkv_operator/build/Release/MMKVCore"
+                val moduleName = "mmkv_operator"
+                val mmkvPath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/$moduleName/build/Release/MMKV"
+                val mmkvCorePath = "${buildDir.absolutePath}/cocoapods/synthetic/OSX/$moduleName//build/Release/MMKVCore"
                 linkerOpts += listOf(
                     "-F$mmkvPath",
                     "-rpath", mmkvPath,
