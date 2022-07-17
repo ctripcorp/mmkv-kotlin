@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.0"
+version = "1.2.1"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -107,8 +107,8 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "31.0.0"
+    compileSdk = 32
+    buildToolsVersion = "32.0.0"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets.getByName("androidTest") {
         manifest.srcFile(File("src/androidTest/AndroidManifest.xml"))
@@ -116,7 +116,7 @@ android {
     }
     defaultConfig {
         minSdk = 23
-        targetSdk = 31
+        targetSdk = 32
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     testOptions {

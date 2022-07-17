@@ -1,9 +1,16 @@
 # MMKV-Kotlin Change Log
 
+## v1.2.1/2022-7-17
+
+* Update Kotlin Version
+ * Based on `Kotlin 1.7.10`
+
+* Update Android Target SDK to API 32
+
 ## v1.2.0/2022-06-13
 
 * Update Kotlin Version
- * Based on Kotlin 1.7.0 
+ * Based on `Kotlin 1.7.0`
 
 ## v1.1.1/2022-05-05
 
