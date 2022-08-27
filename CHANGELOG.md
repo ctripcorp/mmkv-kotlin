@@ -1,5 +1,10 @@
 # MMKV-Kotlin Change Log
 
+## v1.2.2/2022-8-25
+
+* Update MMKV version
+ * Based on `MMKV 1.2.14`
+
 ## v1.2.1/2022-7-17
 
 * Update Kotlin Version

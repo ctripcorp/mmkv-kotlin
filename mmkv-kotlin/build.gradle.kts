@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.1"
+version = "1.2.2"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -49,7 +49,7 @@ kotlin {
         }
         pod(
             name = "MMKV",
-            version = "1.2.13",
+            version = "1.2.14",
         )
     }
     
@@ -65,7 +65,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("com.tencent:mmkv-static:1.2.13")
+                api("com.tencent:mmkv-static:1.2.14")
             }
         }
         val androidTest by getting {
