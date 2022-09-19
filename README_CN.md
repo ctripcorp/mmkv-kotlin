@@ -179,7 +179,7 @@ kvMultiProcess.set("Boolean", true)
   * `Parcelable 的实现者`
 
 
-* 在 iOS source set 中额外支持以下类型：
+* 在 Apple source set 中额外支持以下类型：
   * `NSDate 以及 NSCoding 协议的实现者`
 
 
@@ -187,7 +187,7 @@ kvMultiProcess.set("Boolean", true)
  
 - MMKV-Kotlin 暂时不支持从 SharedPreferences 与 NSUserDefaults 中迁移旧数据。
 
-- MMKV-Kotlin 在 iOS 平台上基于旧的 Kotlin/Native 内存管理模型，我们计划在 Kotlin/Native 新内存管理模型正式发行后向其进行迁移。
+- MMKV-Kotlin 在 Apple 平台上基于旧的 Kotlin/Native 内存管理模型，我们计划在 Kotlin/Native 新内存管理模型正式发行后向其进行迁移。
 
 ## 开源许可
 

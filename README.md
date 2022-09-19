@@ -181,7 +181,7 @@ kvMultiProcess.set("Boolean", true)
   * `Any class that implements Parcelable`
 
 
-* The following types are additionally supported in the iOS source set:
+* The following types are additionally supported in the Apple source set:
   * `NSDate and any class that implements NSCoding protocol`
 
 
@@ -189,7 +189,7 @@ kvMultiProcess.set("Boolean", true)
  
 - MMKV-Kotlin currently does not support migrating old data from SharedPreferences and NSUserDefaults.
 
-- MMKV-Kotlin is based on old Kotlin/Native memory management in iOS，We plan to migrate to Kotlin/Native's new memory management when it is released.
+- MMKV-Kotlin is based on old Kotlin/Native memory management in Apple platform，We plan to migrate to Kotlin/Native's new memory management when it is released.
 
 ## License
 
