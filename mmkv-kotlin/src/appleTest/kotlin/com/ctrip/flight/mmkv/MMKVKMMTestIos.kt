@@ -85,4 +85,12 @@ class MMKVKotlinTestIos {
         val value1 = mmkvImpl.takeObject(MMKVKotlinTest.KEY_NOT_EXIST, NSArray.`class`()!!)
         assertEquals(value1, null)
     }
+
+    @Test
+    fun emptyNsDataToByteArray() {
+        @Suppress("CAST_NEVER_SUCCEEDS")
+        val data = ("" as NSString).dataUsingEncoding(NSUTF8StringEncoding) as NSData
+        val bytes = data.toByteArray()
+        assert(bytes.isEmpty())
+    }
 }
