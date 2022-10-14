@@ -14,7 +14,7 @@ dependencies {
 }
 ```
 
-当前版本依赖于 `Kotlin 1.7.10` 以及 `MMKV 1.2.14`。
+当前版本依赖于 `Kotlin 1.7.20` 以及 `MMKV 1.2.14`。
 
 纯 Android 平台（kts）：
 

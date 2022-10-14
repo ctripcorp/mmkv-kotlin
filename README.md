@@ -16,7 +16,7 @@ dependencies {
 }
 ```
 
-Current version based on `Kotlin 1.7.10` and `MMKV 1.2.14`.
+Current version based on `Kotlin 1.7.20` and `MMKV 1.2.14`.
 
 Pure Android platform (kts):
 
