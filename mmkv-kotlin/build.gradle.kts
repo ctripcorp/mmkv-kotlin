@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.2"
+version = "1.2.4"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -107,8 +107,8 @@ kotlin {
 }
 
 android {
-    compileSdk = 32
-    buildToolsVersion = "32.0.0"
+    compileSdk = 33
+    buildToolsVersion = "33.0.0"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets.getByName("androidTest") {
         manifest.srcFile(File("src/androidTest/AndroidManifest.xml"))
@@ -116,7 +116,7 @@ android {
     }
     defaultConfig {
         minSdk = 23
-        targetSdk = 32
+        targetSdk = 33
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     testOptions {
@@ -181,12 +181,6 @@ publishing {
 
 fun KotlinNativeTarget.setupNativeConfig() {
     compilations["main"].kotlinOptions.freeCompilerArgs += listOf(
-        "-Xallocator=mimalloc", "-Xruntime-logs=gc=info", "-Xexport-kdoc"
+        "-Xruntime-logs=gc=info", "-Xexport-kdoc"
     )
-    binaries {
-        /*all {
-            binaryOptions["memoryModel"] = "experimental"
-            binaryOptions["freezing"] = "disabled"
-        }*/
-    }
 }

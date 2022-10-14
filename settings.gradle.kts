@@ -10,7 +10,7 @@ rootProject.name = "MMKV-Kotlin"
 include(":mmkv-kotlin")
 
 plugins {
-    id("com.gradle.enterprise") version("3.7")
+    id("com.gradle.enterprise") version("3.11.2")
 }
 
 gradleEnterprise {
