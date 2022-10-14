@@ -12,7 +12,7 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.4")
 }
 ```
 
@@ -22,7 +22,7 @@ Pure Android platform (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.4")
 }
 ```
 
@@ -31,10 +31,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.4")
     
     // M1&M2 Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.4")
 }
 ```
 Note, if you want to import MMKV-Kotlin to your Kotlin/Native executable project that target is macOS, you need to manually add dependency on MMKV, and add `linkerOpts` on MMKV and MMKVCore：
@@ -188,8 +188,6 @@ kvMultiProcess.set("Boolean", true)
 ## Note
  
 - MMKV-Kotlin currently does not support migrating old data from SharedPreferences and NSUserDefaults.
-
-- MMKV-Kotlin is based on old Kotlin/Native memory management in Apple platform，We plan to migrate to Kotlin/Native's new memory management when it is released.
 
 ## License
 

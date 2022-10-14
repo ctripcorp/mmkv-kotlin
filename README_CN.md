@@ -10,7 +10,7 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.4")
 }
 ```
 
@@ -20,7 +20,7 @@ dependencies {
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.4")
 }
 ```
 
@@ -29,10 +29,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.4")
     
     // M1&M2 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.2")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.4")
 }
 ```
 注意，如果您在目标平台为 macOS 的 Kotlin/Native 可执行程序工程中导入 MMKV-Kotlin，您需要手动在工程中添加对 MMKV 的依赖，并添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
@@ -186,8 +186,6 @@ kvMultiProcess.set("Boolean", true)
 ## 注意
  
 - MMKV-Kotlin 暂时不支持从 SharedPreferences 与 NSUserDefaults 中迁移旧数据。
-
-- MMKV-Kotlin 在 Apple 平台上基于旧的 Kotlin/Native 内存管理模型，我们计划在 Kotlin/Native 新内存管理模型正式发行后向其进行迁移。
 
 ## 开源许可
 
