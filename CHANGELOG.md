@@ -10,6 +10,8 @@
 
 * Gradle: 7.4.2 -> 7.5.1
 
+* Android Gradle Plugin: 7.2.1 -> 7.3.0
+
 * *com.gradle.enterprise*: 3.7 -> 3.11.2
 
 * Android Target SDK API: 32 -> 33
