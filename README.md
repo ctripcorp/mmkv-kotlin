@@ -191,6 +191,6 @@ kvMultiProcess.set("Boolean", true)
 
 ## License
 
-Distributed under the [Apache License, Version 2.0](https://github.com/aws/jsii/tree/main/packages/jsii-reflect#license).
+Distributed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
 See [LICENSE](LICENSE.txt) for more information.

@@ -189,6 +189,6 @@ kvMultiProcess.set("Boolean", true)
 
 ## 开源许可
 
-本项目于 [Apache License, Version 2.0](https://github.com/aws/jsii/tree/main/packages/jsii-reflect#license) 协议下开源。
+本项目于 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) 协议下开源。
 
 查看 [LICENSE](LICENSE.txt) 获取更多信息。
