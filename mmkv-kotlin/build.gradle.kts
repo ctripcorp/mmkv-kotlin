@@ -19,6 +19,8 @@ val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
+val mmkvVersion = "1.2.14"
+
 kotlin {
     android {
         publishLibraryVariants("release")
@@ -49,7 +51,7 @@ kotlin {
         }
         pod(
             name = "MMKV",
-            version = "1.2.14",
+            version = mmkvVersion,
         )
     }
     
@@ -65,7 +67,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("com.tencent:mmkv-static:1.2.14")
+                api("com.tencent:mmkv-static:$mmkvVersion")
             }
         }
         val androidTest by getting {
@@ -123,13 +125,6 @@ android {
         unitTests {
             isReturnDefaultValues = true
             isIncludeAndroidResources = true
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            isShrinkResources = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
