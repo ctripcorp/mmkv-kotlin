@@ -74,9 +74,9 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
-                implementation("androidx.test:core:1.4.0")
-                implementation("androidx.test:runner:1.4.0")
-                implementation("androidx.test:rules:1.4.0")
+                implementation("androidx.test:core:1.5.1")
+                implementation("androidx.test:runner:1.5.1")
+                implementation("androidx.test:rules:1.5.1")
             }
         }
         val iosX64Main by getting

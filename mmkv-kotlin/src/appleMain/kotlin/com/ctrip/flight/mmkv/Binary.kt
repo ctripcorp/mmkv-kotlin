@@ -16,26 +16,21 @@
 
 package com.ctrip.flight.mmkv
 
-import kotlinx.cinterop.addressOf
-import kotlinx.cinterop.allocArrayOf
-import kotlinx.cinterop.memScoped
-import kotlinx.cinterop.usePinned
+import kotlinx.cinterop.*
 import platform.Foundation.NSData
 import platform.Foundation.create
 import platform.posix.memcpy
 
 /**
- * Kotlin ByteArray 与 Objective-C NSData 互转
+ * Between with Kotlin ByteArray and Objective-C NSData convert to each other
  * @author yaqiao
  */
 
 internal fun NSData.toByteArray(): ByteArray {
     val size = length.toInt()
     return ByteArray(size).apply {
-        if (size != 0) {
-            usePinned {
-                memcpy(it.addressOf(0), bytes, length)
-            }
+        if (size > 0) usePinned {
+            memcpy(it.addressOf(0), bytes, length)
         }
     }
 }

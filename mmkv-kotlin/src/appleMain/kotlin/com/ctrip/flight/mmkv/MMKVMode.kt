@@ -23,10 +23,10 @@ package com.ctrip.flight.mmkv
 
 actual enum class MMKVMode {
     SINGLE_PROCESS {
-        override val rawValue: ULong = 0x1.toULong()
+        override val rawValue: ULong = 0x1u
     },
     MULTI_PROCESS {
-        override val rawValue: ULong = 0x2.toULong()
+        override val rawValue: ULong = 0x2u
     };
 
     abstract val rawValue: ULong
