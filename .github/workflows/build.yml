@@ -33,4 +33,4 @@ jobs:
         run: ./build.sh
         
       - name: Run Test
-        run: cd core && ../gradlew macosX64Test --no-daemon --stacktrace
+        run: ../gradlew macosX64Test --no-daemon --stacktrace
