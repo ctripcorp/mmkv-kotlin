@@ -1,0 +1,1 @@
+./grawlew :mmkv-kotlin:build
