@@ -48,6 +48,7 @@ kotlin {
         osx.deploymentTarget = "12.2.1"
         framework {
             baseName = "MMKV-Kotlin"
+            isStatic = true
         }
         pod(
             name = "MMKV",
