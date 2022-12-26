@@ -33,11 +33,11 @@ jobs:
       - name: Build all
         run: ./gradlew :mmkv-kotlin:build
         env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.NEXUS_USERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.NEXUS_PASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.signingKey }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.signingKeyId }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.ctrip2022flight }}
+          ORG_GRADLE_PROJECT_NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          ORG_GRADLE_PROJECT_NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.signingKey }}
+          ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.signingKeyId }}
+          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
         
       - name: Run Test
         run: ./gradlew macosX64Test --no-daemon --stacktrace
