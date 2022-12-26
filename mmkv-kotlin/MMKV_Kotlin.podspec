@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin'
-    spec.version                  = '1.2.4'
+    spec.version                  = '1.2.5-alpha01'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
