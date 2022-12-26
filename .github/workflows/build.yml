@@ -31,7 +31,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         
       - name: Build all
-        run: ./gradlew :mmkv-kotlin:build
+        run: ./gradlew :mmkv-kotlin:assemble
         env:
           ORG_GRADLE_PROJECT_NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
           ORG_GRADLE_PROJECT_NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
