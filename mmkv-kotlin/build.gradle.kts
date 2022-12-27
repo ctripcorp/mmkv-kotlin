@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.4"
+version = "1.2.5-alpha01"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
