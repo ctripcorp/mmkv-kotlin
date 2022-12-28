@@ -1,5 +1,9 @@
 # MMKV-Kotlin Change Log
 
+## v1.2.5-alpha01/2022-12-28
+
+* Test Github Action Publishing.
+
 ## v1.2.4/2022-10-14
 
 ### Update Kotlin Version
