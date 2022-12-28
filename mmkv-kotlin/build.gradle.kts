@@ -171,10 +171,10 @@ publishing {
         }
     }
     signing {
-        val signingKeyId: String by project
-        val signingKey: String by project
-        val signingPassword: String by project
-        useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+        val SIGNING_KEY_ID: String by project
+        val SIGNING_KEY: String by project
+        val SIGNING_PASSWORD: String by project
+        useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
         sign(publishing.publications)
     }
 }
