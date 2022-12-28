@@ -7,7 +7,7 @@ jobs:
 
   publish-mmkv-kotlin:
     runs-on: macos-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -43,7 +43,7 @@ jobs:
           ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.signingKeyId }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.signingPassword }}
 
-      - name: Publish MavenCentral
+      - name: Publish to MavenCentral
         run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenRepository
         env:
           ORG_GRADLE_PROJECT_NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
