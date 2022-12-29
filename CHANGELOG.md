@@ -2,7 +2,7 @@
 
 ## v1.2.5-alpha01/2022-12-28
 
-* Test Github Action Publishing.
+* Test Github Action Publishing
 
 ## v1.2.4/2022-10-14
 
@@ -50,7 +50,7 @@
 
 ### macOS Support
 
-* Add the macOS(x64/arm64) supported.
+* Add the macOS(x64/arm64) supported
 
 ## v1.1.0/2022-04-25
 
