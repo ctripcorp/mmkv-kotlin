@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        api-level: [21, 23, 29]
+        api-level: [23, 31, 33]
         target: [default]
 
     steps:
@@ -53,12 +53,12 @@ jobs:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
           arch: x86_64
-          profile: Pixel 6
+          profile: pixel_6
           script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
         uses: actions/upload-artifact@v2
         with:
           name: Test-Reports
-          path: app/build/reports
+          path: mmkv-kotlin/build/reports
         if: always()
