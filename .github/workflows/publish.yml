@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        api-level: [23, 31, 33]
+        api-level: [23, 30, 31]
         target: [default]
 
     steps:
