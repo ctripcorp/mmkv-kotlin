@@ -57,8 +57,8 @@ jobs:
           script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
-          uses: actions/upload-artifact@v2
-          with:
-            name: Test-Reports
-            path: app/build/reports
-          if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test-Reports
+          path: app/build/reports
+        if: always()
