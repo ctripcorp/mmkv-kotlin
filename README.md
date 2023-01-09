@@ -174,7 +174,7 @@ kvMultiProcess.set("Boolean", true)
 ## Supported Types
 
 * Supported Kotlin types in Kotlin Multiplatform common source set：
-  * `Boolean、Int、Long、Float、Double、String、UInt、ULong、ByteArray、Set<String>`
+  * `Boolean, Int, Long, Float, Double, String, UInt, ULong, ByteArray, Set<String>`
  
 
 * The following types are additionally supported in the Android source set:
