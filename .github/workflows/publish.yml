@@ -35,8 +35,17 @@ jobs:
       - name: Build All
         run: ./gradlew :mmkv-kotlin:assemble
         
-      - name: Run Test
-        run: ./gradlew macosX64Test --no-daemon --stacktrace
+      - name: Run Native Tests
+        run: ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
+
+      - name: Run Android Instrumentation Tests
+          uses: reactivecircus/android-emulator-runner@v2
+          with:
+            api-level: [23, 31, 33]
+            target: [default]
+            arch: x86_64
+            profile: Nexus 6
+            script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Publish to MavenCentral
         run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenRepository
