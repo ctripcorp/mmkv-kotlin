@@ -45,16 +45,16 @@ jobs:
         run: ./gradlew :mmkv-kotlin:assemble
         
       - name: Run Native Tests
-          run: ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
+        run: ./gradlew :mmkv-kotlin:cleanMacosX64Test && ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
 
       - name: Run Android Instrumentation Tests
-          uses: reactivecircus/android-emulator-runner@v2
-          with:
-            api-level: ${{ matrix.api-level }}
-            target: ${{ matrix.target }}
-            arch: x86_64
-            profile: Pixel 6
-            script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Pixel 6
+          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
           uses: actions/upload-artifact@v2
