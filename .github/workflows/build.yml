@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        api-level: [21, 23, 29]
+        api-level: [23, 31, 33]
         target: [default]
 
     steps:
@@ -60,5 +60,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Test-Reports
-          path: app/build/reports
+          path: mmkv-kotlin/build/reports
         if: always()
