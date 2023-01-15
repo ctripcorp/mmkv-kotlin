@@ -70,7 +70,7 @@ kotlin {
 
 ### 初始化与配置根目录
 
-可在 App 或进程启动时初始化 MMKV。由于 [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) 的初始化 API 依赖 [MMKV](https://github.com/Tencent/MMKV)，因此 Android 与 iOS 平台初始化 API 有所不同。
+可在 App 或进程启动时初始化 MMKV。由于 [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) 的初始化 API 依赖 [Context](https://developer.android.com/reference/android/content/Context)，因此 Android 与 iOS 平台初始化 API 有所不同。
 
 Android:
 
