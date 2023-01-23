@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.5-alpha01"
+version = "1.2.5"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -19,7 +19,7 @@ val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
-val mmkvVersion = "1.2.14"
+val mmkvVersion = "1.2.15"
 
 kotlin {
     android {
@@ -119,7 +119,6 @@ android {
     }
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     testOptions {
