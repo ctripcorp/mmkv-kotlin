@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.5-alpha01"
+version = "1.2.5"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -19,7 +19,7 @@ val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
-val mmkvVersion = "1.2.14"
+val mmkvVersion = "1.2.15"
 
 kotlin {
     android {
@@ -76,7 +76,7 @@ kotlin {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
                 implementation("androidx.test:core:1.5.0")
-                implementation("androidx.test:runner:1.5.1")
+                implementation("androidx.test:runner:1.5.2")
                 implementation("androidx.test:rules:1.5.0")
             }
         }
@@ -111,7 +111,7 @@ kotlin {
 
 android {
     compileSdk = 33
-    buildToolsVersion = "33.0.0"
+    buildToolsVersion = "33.0.1"
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets.getByName("androidTest") {
         manifest.srcFile(File("src/androidTest/AndroidManifest.xml"))
@@ -119,7 +119,6 @@ android {
     }
     defaultConfig {
         minSdk = 23
-        targetSdk = 33
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     testOptions {
@@ -129,8 +128,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
