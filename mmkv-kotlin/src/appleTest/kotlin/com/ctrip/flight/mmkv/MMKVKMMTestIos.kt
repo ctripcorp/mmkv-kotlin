@@ -16,7 +16,9 @@
 
 package com.ctrip.flight.mmkv
 
+import kotlinx.cinterop.toKString
 import platform.Foundation.*
+import platform.posix.getenv
 import kotlin.test.*
 
 /**
@@ -30,7 +32,7 @@ class MMKVKotlinTestIos {
 
     @BeforeTest
     fun setUp() {
-        initialize()
+        initialize("/Users/${getenv("USER")!!.toKString()}/Downloads")
         mmkvTest = MMKVKotlinTest().apply {
             setUp()
         }
