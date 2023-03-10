@@ -1,5 +1,12 @@
 # MMKV-Kotlin Change Log
 
+## v1.2.6/2023-03-10
+
+* Based on `Kotlin 1.8.10`
+
+* Android Gradle Plugin: 7.4.0 -> 7.3.1 (temporary)
+* Android Build Tools: 33.0.1 -> 33.0.2
+
 ## v1.2.5/2023-01-23
 
 ### Update MMKV Version
