@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.6"
+version = "1.2.0-ctrip"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -19,7 +19,7 @@ val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
-val mmkvVersion = "1.2.15"
+// val mmkvVersion = "1.2.15"
 
 kotlin {
     android {
@@ -52,7 +52,7 @@ kotlin {
         }
         pod(
             name = "MMKV",
-            version = mmkvVersion,
+            version = "1.2.10",
         )
     }
     
@@ -68,10 +68,10 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("com.tencent:mmkv-static:$mmkvVersion")
+                api("com.tencent:mmkv-static:1.2.9")
             }
         }
-        val androidInstrumentedTest by getting {
+        val androidTest by getting {
             dependencies {
                 dependsOn(commonTest)
                 implementation(kotlin("test-junit"))
@@ -113,6 +113,11 @@ kotlin {
 android {
     compileSdk = 33
     buildToolsVersion = "33.0.2"
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets.getByName("androidTest") {
+        manifest.srcFile(File("src/androidTest/AndroidManifest.xml"))
+        java.setSrcDirs(listOf("src/androidTest/kotlin"))
+    }
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
