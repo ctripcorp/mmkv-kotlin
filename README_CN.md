@@ -35,7 +35,7 @@ dependencies {
     implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.6")
 }
 ```
-注意，如果您在目标平台为 macOS 的 Kotlin/Native 可执行程序工程中导入 MMKV-Kotlin，您需要手动在工程中添加对 MMKV 的依赖，并添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
+注意，如果你的工程为 macOS 的 Kotlin/Native 可执行程序工程，或者它直接向一个 iOS 应用程序工程提供 framework，那么您需要手动在工程中添加对 MMKV 的依赖，并可能需要添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
 
 ```kotlin
 kotlin {
