@@ -37,7 +37,7 @@ dependencies {
     implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.6")
 }
 ```
-Note, if you want to import MMKV-Kotlin to your Kotlin/Native executable project that target is macOS, you need to manually add dependency on MMKV, and add `linkerOpts` on MMKV and MMKVCore：
+Note, if your project is a Kotlin/Native executable program project of macOS or it supply a framework to a iOS application project directly, then you need to manually add dependency on MMKV, and may need add `linkerOpts` on MMKV and MMKVCore：
 
 ```kotlin
 kotlin {
