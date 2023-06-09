@@ -9,7 +9,7 @@ plugins {
     signing
 }
 
-version = "1.2.6"
+version = "1.2.7"
 group = "com.ctrip.flight.mmkv"
 
 val NEXUS_USERNAME: String by project
@@ -19,7 +19,7 @@ val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
-val mmkvVersion = "1.2.15"
+val mmkvVersion = "1.2.16"
 
 kotlin {
     android {

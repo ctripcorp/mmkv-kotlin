@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin'
-    spec.version                  = '1.2.6'
+    spec.version                  = '1.2.7'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
     spec.libraries                = 'c++'
     spec.ios.deployment_target = '14.1'
     spec.osx.deployment_target = '12.2.1'
-    spec.dependency 'MMKV', '1.2.15'
+    spec.dependency 'MMKV', '1.2.16'
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin',
