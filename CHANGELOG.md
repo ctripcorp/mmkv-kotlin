@@ -1,13 +1,19 @@
 # MMKV-Kotlin Change Log
 
-## v1.2.6/2023-03-10
+< Note: Time format: MM-dd-yyyy
+
+## v1.2.7 / 09-06-2023
+
+* Based on `Kotlin 1.8.20`, `MMKV 1.2.16`
+
+## v1.2.6 / 03-10-2023
 
 * Based on `Kotlin 1.8.10`
 
 * Android Gradle Plugin: 7.4.0 -> 7.3.1 (temporary)
 * Android Build Tools: 33.0.1 -> 33.0.2
 
-## v1.2.5/2023-01-23
+## v1.2.5 / 01-23-2023
 
 ### Update MMKV Version
 
@@ -19,11 +25,11 @@
 
 * Android Build Tools: 33.0.0 -> 33.0.1
 
-## v1.2.5-alpha01/2022-12-28
+## v1.2.5-alpha01 / 12-28-2022
 
 * Test Github Action Publishing
 
-## v1.2.4/2022-10-14
+## v1.2.4 / 10-14-2022
 
 ### Update Kotlin Version
 
@@ -45,13 +51,13 @@
 
 * Fix the bug about empty `NSData` convert to `ByteArray` ([PR#2](https://github.com/ctripcorp/mmkv-kotlin/pull/2))
 
-## v1.2.2/2022-8-25
+## v1.2.2 / 8-25-2022
 
 ### Update MMKV Version
 
 * Based on `MMKV 1.2.14`
 
-## v1.2.1/2022-7-17
+## v1.2.1 / 7-17-2022
 
 ### Update Kotlin Version
 
@@ -61,19 +67,19 @@
 
 * Update Android Target SDK to API 32
 
-## v1.2.0/2022-06-13
+## v1.2.0 / 06-13-2022
 
 ### Update Kotlin Version
 
 * Based on `Kotlin 1.7.0`
 
-## v1.1.1/2022-05-05
+## v1.1.1 / 05-05-2022
 
 ### macOS Support
 
 * Add the macOS(x64/arm64) supported
 
-## v1.1.0/2022-04-25
+## v1.1.0 / 04-25-2022
 
 ### Update Kotlin and MMKV Version
 
@@ -83,7 +89,7 @@
 
 * Reamed the `MMKVModel` to `MMKVMode`
 
-## v1.0.0/2022-04-19
+## v1.0.0 / 04-19-2022
 
 ### Initial Release
 
