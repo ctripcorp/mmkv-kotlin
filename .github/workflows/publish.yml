@@ -56,13 +56,13 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-31
+          key: avd-33
 
       - name: Create AVD and Generate Snapshot for Caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
+          api-level: 33
           target: google_apis
           arch: x86_64
           profile: pixel_6
@@ -71,17 +71,17 @@ jobs:
           disable-animations: false
           script: echo "Generated AVD snapshot for caching."
 
-      - name: Run Android 13 Instrumentation Tests
+      - name: Run Android 13 Instrumented Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
+          api-level: 33
           target: google_apis
           arch: x86_64
           profile: pixel_6
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
+          script: adb uninstall com.ctrip.flight.mmkv.test && ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
         uses: actions/upload-artifact@v2
