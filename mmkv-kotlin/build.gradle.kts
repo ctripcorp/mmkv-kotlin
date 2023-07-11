@@ -12,9 +12,6 @@ plugins {
 version = "1.2.7"
 group = "com.ctrip.flight.mmkv"
 
-val NEXUS_USERNAME: String by project
-val NEXUS_PASSWORD: String by project
-
 val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
@@ -159,6 +156,8 @@ publishing {
     repositories {
         maven {
             credentials {
+                val NEXUS_USERNAME: String by project
+                val NEXUS_PASSWORD: String by project
                 username = NEXUS_USERNAME
                 password = NEXUS_PASSWORD
             }

@@ -36,6 +36,14 @@ jobs:
     
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Cache Build Tooling
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.konan
+          key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
         
       - name: Build All
         run: ./gradlew :mmkv-kotlin:assemble
@@ -43,14 +51,42 @@ jobs:
       - name: Run Native Tests
         run: ./gradlew :mmkv-kotlin:cleanMacosX64Test && ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
 
-      - name: Run Android Instrumentation Tests
+      - name: Gradle Cache
+        uses: gradle/gradle-build-action@v2
+
+      - name: AVD Cache
+        uses: actions/cache@v3
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-33
+
+      - name: Create AVD and Generate Snapshot for Caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 31
-          target: default
+          api-level: 33
+          target: google_apis
           arch: x86_64
           profile: pixel_6
-          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: Run Android 13 Instrumented Tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace && adb uninstall com.ctrip.flight.mmkv.test
 
       - name: Upload Reports
         uses: actions/upload-artifact@v2

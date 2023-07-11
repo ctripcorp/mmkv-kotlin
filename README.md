@@ -22,7 +22,7 @@ Pure Android platform (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.6")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.7")
 }
 ```
 
