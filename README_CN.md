@@ -14,13 +14,13 @@ dependencies {
 }
 ```
 
-当前版本依赖于 `Kotlin 1.8.20` 以及 `MMKV 1.2.16`。
+当前版本依赖于 `Kotlin 1.9.10` 以及 `MMKV 1.3.1`。
 
 纯 Android 平台（kts）：
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.8")
 }
 ```
 
@@ -29,10 +29,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.8")
     
     // M1&M2 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.8")
 }
 ```
 注意，如果你的工程为 macOS 的 Kotlin/Native 可执行程序工程，或者它直接向一个 iOS 应用程序工程提供 framework，那么您需要手动在工程中添加对 MMKV 的依赖，并可能需要添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
