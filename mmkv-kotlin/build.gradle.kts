@@ -9,17 +9,17 @@ plugins {
     signing
 }
 
-version = "1.2.7"
+version = "1.2.8"
 group = "com.ctrip.flight.mmkv"
 
 val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
     archiveClassifier.set("javadoc")
 }
 
-val mmkvVersion = "1.2.16"
+val mmkvVersion = "1.3.1"
 
 kotlin {
-    android {
+    androidTarget {
         publishLibraryVariants("release")
     }
     iosX64 {
@@ -41,8 +41,8 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "14.1"
-        osx.deploymentTarget = "12.2.1"
+        ios.deploymentTarget = "16.6"
+        osx.deploymentTarget = "13.4.1"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
@@ -109,7 +109,6 @@ kotlin {
 
 android {
     compileSdk = 33
-    buildToolsVersion = "33.0.2"
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

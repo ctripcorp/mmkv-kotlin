@@ -16,9 +16,12 @@
 
 package com.ctrip.flight.mmkv
 
+import kotlinx.cinterop.BetaInteropApi
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.toKString
 import platform.Foundation.*
 import platform.posix.getenv
+import kotlin.experimental.ExperimentalNativeApi
 import kotlin.test.*
 
 /**
@@ -31,6 +34,7 @@ class MMKVKotlinTestIos {
     private lateinit var mmkvTest: MMKVKotlinTest
 
     @BeforeTest
+    @OptIn(ExperimentalForeignApi::class)
     fun setUp() {
         initialize("/Users/${getenv("USER")!!.toKString()}/Downloads")
         mmkvTest = MMKVKotlinTest().apply {
@@ -74,6 +78,7 @@ class MMKVKotlinTestIos {
 
     @Test
     @Suppress("UNCHECKED_CAST")
+    @OptIn(BetaInteropApi::class)
     fun testNSObject() {
         val mmkvImpl = mmkvTest.mmkv as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
         val list = listOf("Aa", "Bb", "Cc")
@@ -89,6 +94,7 @@ class MMKVKotlinTestIos {
     }
 
     @Test
+    @OptIn(ExperimentalNativeApi::class)
     fun emptyNsDataToByteArray() {
         @Suppress("CAST_NEVER_SUCCEEDS")
         val data = ("" as NSString).dataUsingEncoding(NSUTF8StringEncoding) as NSData

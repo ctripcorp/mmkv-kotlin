@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.ctrip.flight.mmkv
 
 import kotlinx.cinterop.*
@@ -35,6 +37,7 @@ internal fun NSData.toByteArray(): ByteArray {
     }
 }
 
+@OptIn(BetaInteropApi::class)
 internal fun ByteArray.toNSData(): NSData = memScoped {
     NSData.create(bytes = allocArrayOf(this@toNSData),
         length = this@toNSData.size.toULong())
