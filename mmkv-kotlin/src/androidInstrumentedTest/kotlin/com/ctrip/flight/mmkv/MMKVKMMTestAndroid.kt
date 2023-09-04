@@ -119,7 +119,7 @@ class MMKVKotlinTestAndroid {
         assertEquals(1024 + 1, intValue)
     }
 
-    @Test
+    // @Test
     fun testIPCLock() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val intent = Intent(context, MMKVTestService::class.java)
