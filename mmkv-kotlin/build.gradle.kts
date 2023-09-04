@@ -12,10 +12,6 @@ plugins {
 version = "1.2.8"
 group = "com.ctrip.flight.mmkv"
 
-val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
-}
-
 val mmkvVersion = "1.3.1"
 
 kotlin {
@@ -123,6 +119,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+}
+
+val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
 }
 
 publishing {

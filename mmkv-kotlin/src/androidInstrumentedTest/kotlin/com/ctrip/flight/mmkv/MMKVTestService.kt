@@ -22,7 +22,7 @@ import android.os.IBinder
 import android.os.Process
 
 /**
- * MMKV multi process test Service
+ * MMKV multi processes tests Service
  * @author yaqiao
  */
 

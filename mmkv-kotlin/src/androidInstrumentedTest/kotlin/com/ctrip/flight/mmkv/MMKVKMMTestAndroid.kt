@@ -88,13 +88,13 @@ class MMKVKotlinTestAndroid {
         )
 
         val result = androidMMKV.set("Parcelable", testParcelable0)
-        assertEquals(result, true)
+        assertEquals(true, result)
 
         val value0 = androidMMKV.takeParcelable("Parcelable", null, TestParcelable::class)
-        assertEquals(value0, testParcelable0)
+        assertEquals(testParcelable0, value0)
 
         val value1 = androidMMKV.takeParcelable(MMKVKotlinTest.KEY_NOT_EXIST, null, TestParcelable::class)
-        assertEquals(value1, null)
+        assertEquals(null, value1)
 
         val testParcelable1 = TestParcelable(
             id = 2,
@@ -102,13 +102,13 @@ class MMKVKotlinTestAndroid {
             height = 180.0f,
         )
         val value2 = androidMMKV.takeParcelable(MMKVKotlinTest.KEY_NOT_EXIST, testParcelable1, TestParcelable::class)
-        assertEquals(value2, testParcelable1)
+        assertEquals(testParcelable1, value2)
     }
 
     @Test
     fun testIPCUpdateInt() {
         val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVMode.MULTI_PROCESS)
-        mmkv.set(MMKVTestService.SharedMMKVKey, 1024)
+        mmkv[MMKVTestService.SharedMMKVKey] = 1024
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val intent = Intent(context, MMKVTestService::class.java)
         intent.putExtra(MMKVTestService.CMD_Key, MMKVTestService.CMD_Update)
@@ -116,7 +116,7 @@ class MMKVKotlinTestAndroid {
 
         SystemClock.sleep(1000 * 3)
         val intValue = mmkv.takeInt(MMKVTestService.SharedMMKVKey)
-        assertEquals(intValue, 1024 + 1)
+        assertEquals(1024 + 1, intValue)
     }
 
     @Test
@@ -129,12 +129,12 @@ class MMKVKotlinTestAndroid {
         SystemClock.sleep(1000 * 3)
         val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVMode.MULTI_PROCESS) as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
         val result0 = mmkv.tryLock()
-        assertEquals(result0, false)
+        assertEquals(false, result0)
 
         intent.putExtra(MMKVTestService.CMD_Key, MMKVTestService.CMD_Kill)
         context.startService(intent)
         SystemClock.sleep(1000 * 3)
         val result1 = mmkv.tryLock()
-        assertEquals(result1, true)
+        assertEquals(true, result1)
     }
 }

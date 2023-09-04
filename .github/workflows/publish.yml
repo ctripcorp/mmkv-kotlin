@@ -81,7 +81,7 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
+          script: adb uninstall com.ctrip.flight.mmkv.test && ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
         uses: actions/upload-artifact@v2
