@@ -48,6 +48,7 @@ class MMKVKotlinTestAndroid {
         initialize(context)
         mmkvTest = MMKVKotlinTest().apply {
             setUp()
+            testDown()
         }
     }
 
