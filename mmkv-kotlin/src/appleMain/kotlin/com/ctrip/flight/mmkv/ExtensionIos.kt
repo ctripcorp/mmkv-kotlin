@@ -16,6 +16,7 @@
 
 package com.ctrip.flight.mmkv
 
+import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ObjCClass
 import platform.Foundation.NSDate
 import platform.darwin.NSObject
@@ -31,4 +32,5 @@ operator fun MMKVImpl.set(key: String, value: NSObject?) = platformMMKV.setObjec
 
 fun MMKVImpl.takeNSDate(key: String, default: NSDate? = null): NSDate? = platformMMKV.getDateForKey(key, default)
 
+@OptIn(BetaInteropApi::class)
 fun MMKVImpl.takeObject(key: String, cls: ObjCClass): Any? = platformMMKV.getObjectOfClass(cls, key)

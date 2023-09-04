@@ -17,6 +17,7 @@
 package com.ctrip.flight.mmkv
 
 import cocoapods.MMKV.MMKV
+import kotlinx.cinterop.BetaInteropApi
 import platform.Foundation.NSSet
 
 /**
@@ -73,6 +74,7 @@ class MMKVImpl internal constructor(internal val platformMMKV: MMKV) : MMKV_KMP 
 
     override fun takeULong(key: String, default: ULong): ULong = platformMMKV.getUInt64ForKey(key, default)
 
+    @OptIn(BetaInteropApi::class)
     override fun takeStringSet(key: String, default: Set<String>?): Set<String>? = platformMMKV.getObjectOfClass(NSSet.`class`()!!, key) as? Set<String> ?: default
 
     /**

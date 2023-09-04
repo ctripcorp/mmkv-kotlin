@@ -12,17 +12,17 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.8")
 }
 ```
 
-Current version based on `Kotlin 1.8.20` and `MMKV 1.2.16`.
+Current version based on `Kotlin 1.9.10` and `MMKV 1.3.1`.
 
 Pure Android platform (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.8")
 }
 ```
 
@@ -31,10 +31,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.8")
     
     // M1&M2 Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.8")
 }
 ```
 Note, if your project is a Kotlin/Native executable program project of macOS or it supply a framework to a iOS application project directly, then you need to manually add dependency on MMKV, and may need add `linkerOpts` on MMKV and MMKVCore：

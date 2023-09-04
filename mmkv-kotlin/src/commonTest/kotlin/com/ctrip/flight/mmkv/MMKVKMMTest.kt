@@ -43,102 +43,102 @@ class MMKVKotlinTest {
 
     fun testBoolean() {
         val result = mmkv.set("Boolean", true)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeBoolean("Boolean")
-        assertEquals(value0, true)
+        assertEquals(true, value0)
         val value1 = mmkv.takeBoolean(KEY_NOT_EXIST)
-        assertEquals(value1, false)
+        assertEquals(false, value1)
         val value2 = mmkv.takeBoolean(KEY_NOT_EXIST, true)
-        assertEquals(value2, true)
+        assertEquals(true, value2)
     }
 
     fun testInt() {
         val result = mmkv.set("Int", Int.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeInt("Int")
-        assertEquals(value0, Int.MAX_VALUE)
+        assertEquals(Int.MAX_VALUE, value0)
         val value1 = mmkv.takeInt(KEY_NOT_EXIST)
-        assertEquals(value1, 0)
+        assertEquals(0, value1)
         val value2 = mmkv.takeInt(KEY_NOT_EXIST, -1)
-        assertEquals(value2, -1)
+        assertEquals(-1, value2)
     }
 
     fun testLong() {
         val result = mmkv.set("Long", Long.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeLong("Long")
-        assertEquals(value0, Long.MAX_VALUE)
+        assertEquals(Long.MAX_VALUE, value0)
         val value1 = mmkv.takeLong(KEY_NOT_EXIST)
-        assertEquals(value1, 0)
+        assertEquals(0, value1)
         val value2 = mmkv.takeLong(KEY_NOT_EXIST, -1)
-        assertEquals(value2, -1)
+        assertEquals(-1, value2)
     }
 
     fun testFloat() {
         val result = mmkv.set("Float", Float.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeFloat("Float")
-        assertEquals(value0, Float.MAX_VALUE)
+        assertEquals(Float.MAX_VALUE, value0)
         val value1 = mmkv.takeFloat(KEY_NOT_EXIST)
-        assertEquals(value1, 0f)
+        assertEquals(0f, value1)
         val value2 = mmkv.takeFloat(KEY_NOT_EXIST, -1f)
-        assertEquals(value2, -1f)
+        assertEquals(-1f, value2)
     }
 
     fun testDouble() {
         val result = mmkv.set("Double", Double.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeDouble("Double")
-        assertEquals(value0, Double.MAX_VALUE)
+        assertEquals(Double.MAX_VALUE, value0)
         val value1 = mmkv.takeDouble(KEY_NOT_EXIST)
-        assertEquals(value1, 0.0)
+        assertEquals(0.0, value1)
         val value2 = mmkv.takeDouble(KEY_NOT_EXIST, -1.0)
-        assertEquals(value2, -1.0)
+        assertEquals(-1.0, value2)
     }
 
     fun testString() {
         val str = "Hello MMKV with Kotlin"
         val result = mmkv.set("String", str)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeString("String")
-        assertEquals(value0, str)
+        assertEquals(str, value0)
         val value1 = mmkv.takeString(KEY_NOT_EXIST)
-        assertEquals(value1, "")
+        assertEquals("", value1)
         val emptyStr = "Empty"
         val value2 = mmkv.takeString(KEY_NOT_EXIST, emptyStr)
-        assertEquals(value2, emptyStr)
+        assertEquals(emptyStr, value2)
     }
 
     fun testByteArray() {
         val byteArray = byteArrayOf(1, 0, 0, 8, 6)
         val result = mmkv.set("ByteArray", byteArray)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeByteArray("ByteArray")
-        assertContentEquals(value0, byteArray)
+        assertContentEquals(byteArray, value0)
         val value1 = mmkv.takeByteArray(KEY_NOT_EXIST)
-        assertContentEquals(value1, null)
+        assertContentEquals(null, value1)
     }
 
     fun testUInt() {
         val result = mmkv.set("UInt", UInt.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeUInt("UInt")
-        assertEquals(value0, UInt.MAX_VALUE)
+        assertEquals(UInt.MAX_VALUE, value0)
         val value1 = mmkv.takeUInt(KEY_NOT_EXIST)
-        assertEquals(value1, 0U)
+        assertEquals(0U, value1)
         val value2 = mmkv.takeUInt(KEY_NOT_EXIST, 99U)
-        assertEquals(value2, 99U)
+        assertEquals(99U, value2)
     }
 
     fun testULong() {
         val result = mmkv.set("ULong", ULong.MAX_VALUE)
-        assertEquals(result, true)
+        assertEquals(true, result)
         val value0 = mmkv.takeULong("ULong")
-        assertEquals(value0, ULong.MAX_VALUE)
+        assertEquals(ULong.MAX_VALUE, value0)
         val value1 = mmkv.takeULong(KEY_NOT_EXIST)
-        assertEquals(value1, 0UL)
+        assertEquals(0UL, value1)
         val value2 = mmkv.takeULong(KEY_NOT_EXIST, 999UL)
-        assertEquals(value2, 999UL)
+        assertEquals(999UL, value2)
     }
 
     fun testRemove() {
@@ -153,54 +153,54 @@ class MMKVKotlinTest {
             result = result && set("UInt_1", UInt.MAX_VALUE)
             result = result && set("ULong_1", ULong.MAX_VALUE)
             result = result && set("ByteArray_1", byteArray)
-            assertEquals(result, true)
+            assertEquals(true, result)
         }
 
         val oldCount = mmkv.count
         mmkv.removeValueForKey("Boolean_1")
         mmkv.removeValuesForKeys(listOf("Int_1", "Long_1"))
-        assertEquals(oldCount, mmkv.count + 3)
+        assertEquals(mmkv.count, oldCount - 3)
 
         val resultB = mmkv.takeBoolean("Boolean_1", false)
-        assertEquals(resultB, false)
+        assertEquals(false, resultB)
 
         val resultI = mmkv.takeInt("Int_1")
-        assertEquals(resultI, 0)
+        assertEquals(0, resultI)
 
         val resultL = mmkv.takeLong("Long_1")
-        assertEquals(resultL, 0L)
+        assertEquals(0L, resultL)
 
         val resultF = mmkv.takeFloat("Float_1")
-        assertEquals(resultF, Float.MAX_VALUE)
+        assertEquals(Float.MAX_VALUE, resultF)
 
         val resultD = mmkv.takeDouble("Double_1")
-        assertEquals(resultD, Double.MAX_VALUE)
+        assertEquals(Double.MAX_VALUE, resultD)
 
         val resultS = mmkv.takeString("String_1")
-        assertEquals(resultS, "hello")
+        assertEquals("hello", resultS)
 
         val resultUI = mmkv.takeUInt("UInt_1")
-        assertEquals(resultUI, UInt.MAX_VALUE)
+        assertEquals(UInt.MAX_VALUE, resultUI)
 
         val resultUL = mmkv.takeULong("ULong_1")
-        assertEquals(resultUL, ULong.MAX_VALUE)
+        assertEquals(ULong.MAX_VALUE, resultUL)
 
         val resultBA = mmkv.takeByteArray("ByteArray_1")
-        assertContentEquals(resultBA, byteArray)
+        assertContentEquals(byteArray, resultBA)
     }
 
     fun testStringSet() {
         val strSet0 = setOf("t", "r", "i", "p")
         val result = mmkv.set("StringSet", strSet0)
-        assertEquals(result, true)
+        assertEquals(true, result)
 
         val value0 = mmkv.takeStringSet("StringSet")
-        assertEquals(value0, strSet0)
+        assertEquals(strSet0, value0)
 
         val value1 = mmkv.takeStringSet(KEY_NOT_EXIST)
-        assertEquals(value1, null)
+        assertEquals(null, value1)
 
         val value2 = mmkv.takeStringSet(KEY_NOT_EXIST)
-        assertEquals(value2, null)
+        assertEquals(null, value2)
     }
 }
