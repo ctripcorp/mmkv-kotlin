@@ -105,7 +105,7 @@ class MMKVKotlinTestAndroid {
         assertEquals(testParcelable1, value2)
     }
 
-    // @Test
+    @Test
     fun testIPCUpdateInt() {
         val mmkv = mmkvWithID(MMKVTestService.SharedMMKVID, MMKVMode.MULTI_PROCESS)
         mmkv[MMKVTestService.SharedMMKVKey] = 1024
@@ -119,7 +119,7 @@ class MMKVKotlinTestAndroid {
         assertEquals(1024 + 1, intValue)
     }
 
-    // @Test
+    @Test
     fun testIPCLock() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val intent = Intent(context, MMKVTestService::class.java)
