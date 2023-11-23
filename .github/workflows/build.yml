@@ -93,4 +93,4 @@ jobs:
         with:
           name: Test-Reports
           path: mmkv-kotlin/build/reports
-        if: always()
+        if: failure()

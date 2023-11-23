@@ -12,7 +12,7 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.9")
 }
 ```
 
@@ -22,7 +22,7 @@ Pure Android platform (kts):
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.9")
 }
 ```
 
@@ -31,10 +31,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.9")
     
     // M1&M2 Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.9")
 }
 ```
 Note, if your project is a Kotlin/Native executable program project of macOS or it supply a framework to a iOS application project directly, then you need to manually add dependency on MMKV, and may need add `linkerOpts` on MMKV and MMKVCore：
@@ -139,7 +139,7 @@ fun demo() {
 }
 ```
 
-- **Deleting & Querying:**
+- **Deleting & Judging(Whether the key is exist):**
 
 ```kotlin
 kv.removeValueForKey("Boolean")
@@ -160,7 +160,7 @@ val kvWithMyId = mmkvWithID("MyID")
 kvWithMyId.set("Boolean", true)
 ```
 
-- If **multi-process accessing** is needed, you can set `MMKV.MULTI_PROCESS_MODE` on MMKV initialization:
+- If **multi-process accessing** is needed, you can set `MMKVMode.MULTI_PROCESS` on MMKV initialization:
 
 ```kotlin
 import com.ctrip.flight.mmkv.mmkvWithID

@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-@file:OptIn(ExperimentalForeignApi::class)
-
 package com.ctrip.flight.mmkv
 
 import kotlinx.cinterop.*
@@ -28,6 +25,7 @@ import platform.posix.memcpy
  * @author yaqiao
  */
 
+@OptIn(ExperimentalForeignApi::class)
 internal fun NSData.toByteArray(): ByteArray {
     val size = length.toInt()
     return ByteArray(size).apply {
@@ -37,7 +35,7 @@ internal fun NSData.toByteArray(): ByteArray {
     }
 }
 
-@OptIn(BetaInteropApi::class)
+@OptIn(BetaInteropApi::class, ExperimentalForeignApi::class)
 internal fun ByteArray.toNSData(): NSData = memScoped {
     NSData.create(bytes = allocArrayOf(this@toNSData),
         length = this@toNSData.size.toULong())

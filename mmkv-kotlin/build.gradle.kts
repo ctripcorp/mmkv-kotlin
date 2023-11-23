@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -9,36 +11,36 @@ plugins {
     signing
 }
 
-version = "1.2.8"
+version = "1.2.9"
 group = "com.ctrip.flight.mmkv"
 
-val mmkvVersion = "1.3.1"
+val mmkvVersion = "1.3.2"
 
 kotlin {
     androidTarget {
         publishLibraryVariants("release")
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
     }
-    iosX64 {
-        setupNativeConfig()
-    }
-    iosArm64 {
-        setupNativeConfig()
-    }
-    iosSimulatorArm64 {
-        setupNativeConfig()
-    }
-    macosX64 {
-        setupNativeConfig()
-    }
-    macosArm64 {
-        setupNativeConfig()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    macosX64()
+    macosArm64()
+
+    targets.configureEach {
+        compilations.configureEach {
+            compilerOptions.configure {
+                freeCompilerArgs.add("-Xexpect-actual-classes")
+            }
+        }
     }
 
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "16.6"
-        osx.deploymentTarget = "13.4.1"
+        ios.deploymentTarget = "17.1.1"
+        osx.deploymentTarget = "14.1"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
@@ -53,7 +55,6 @@ kotlin {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
-        val commonMain by getting
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
@@ -66,7 +67,6 @@ kotlin {
         }
         val androidInstrumentedTest by getting {
             dependencies {
-                dependsOn(commonTest)
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
                 implementation("androidx.test:core:1.5.0")
@@ -74,50 +74,19 @@ kotlin {
                 implementation("androidx.test:rules:1.5.0")
             }
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val macosX64Main by getting
-        val macosArm64Main by getting
-        val appleMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-            macosX64Main.dependsOn(this)
-            macosArm64Main.dependsOn(this)
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val macosX64Test by getting
-        val macosArm64Test by getting
-        val appleTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
-            macosX64Test.dependsOn(this)
-            macosArm64Test.dependsOn(this)
-        }
     }
 }
 
 android {
+    namespace = "com.ctrip.flight.mmkv"
     compileSdk = 33
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    testOptions {
-        unitTests {
-            isReturnDefaultValues = true
-            isIncludeAndroidResources = true
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -170,10 +139,4 @@ publishing {
         useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
         sign(publishing.publications)
     }
-}
-
-fun KotlinNativeTarget.setupNativeConfig() {
-    compilations["main"].kotlinOptions.freeCompilerArgs += listOf(
-        "-Xruntime-logs=gc=info", "-Xexport-kdoc"
-    )
 }

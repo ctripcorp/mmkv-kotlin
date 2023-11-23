@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.ctrip.flight.mmkv
 
 import kotlinx.cinterop.BetaInteropApi
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCClass
 import platform.Foundation.NSDate
 import platform.darwin.NSObject
@@ -26,11 +26,14 @@ import platform.darwin.NSObject
  * @author yaqiao
  */
 
+@OptIn(ExperimentalForeignApi::class)
 operator fun MMKVImpl.set(key: String, value: NSDate) = platformMMKV.setDate(value, key)
 
+@OptIn(ExperimentalForeignApi::class)
 operator fun MMKVImpl.set(key: String, value: NSObject?) = platformMMKV.setObject(value, key)
 
+@OptIn(ExperimentalForeignApi::class)
 fun MMKVImpl.takeNSDate(key: String, default: NSDate? = null): NSDate? = platformMMKV.getDateForKey(key, default)
 
-@OptIn(BetaInteropApi::class)
+@OptIn(BetaInteropApi::class, ExperimentalForeignApi::class)
 fun MMKVImpl.takeObject(key: String, cls: ObjCClass): Any? = platformMMKV.getObjectOfClass(cls, key)

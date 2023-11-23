@@ -18,6 +18,7 @@ package com.ctrip.flight.mmkv
 
 import cocoapods.MMKV.MMKV
 import kotlinx.cinterop.BetaInteropApi
+import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSSet
 
 /**
@@ -26,6 +27,7 @@ import platform.Foundation.NSSet
  */
 
 @Suppress("UNCHECKED_CAST")
+@OptIn(ExperimentalForeignApi::class)
 class MMKVImpl internal constructor(internal val platformMMKV: MMKV) : MMKV_KMP {
 
     /**
