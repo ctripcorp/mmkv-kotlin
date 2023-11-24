@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
     kotlin("multiplatform")
@@ -139,4 +138,9 @@ publishing {
         useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
         sign(publishing.publications)
     }
+}
+
+// TODO: remove after https://youtrack.jetbrains.com/issue/KT-46466 is fixed
+project.tasks.withType(AbstractPublishToMaven::class.java).configureEach {
+    dependsOn(project.tasks.withType(Sign::class.java))
 }
