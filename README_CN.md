@@ -20,7 +20,7 @@ dependencies {
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.9")
 }
 ```
 
@@ -29,10 +29,10 @@ Kotlin/Native on macOS：
 ```kotlin
 dependencies { 
     // Intel 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.9")
     
     // M1&M2 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.8")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.9")
 }
 ```
 注意，如果你的工程为 macOS 的 Kotlin/Native 可执行程序工程，或者它直接向一个 iOS 应用程序工程提供 framework，那么您需要手动在工程中添加对 MMKV 的依赖，并可能需要添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
@@ -137,7 +137,7 @@ fun demo() {
 }
 ```
 
-- **删除 & 查询：**
+- **删除 & 判断键是否存在：**
 
 ```kotlin
 kv.removeValueForKey("Boolean")
@@ -158,7 +158,7 @@ val kvWithMyId = mmkvWithID("MyID")
 kvWithMyId.set("Boolean", true)
 ```
 
-- 如果业务需要**多进程访问**，那么在初始化的时候加上标志位 `MMKV.MULTI_PROCESS_MODE`：
+- 如果业务需要**多进程访问**，那么在初始化的时候加上标志位 `MMKVModel.MULTI_PROCESS`：
 
 ```kotlin
 import com.ctrip.flight.mmkv.mmkvWithID

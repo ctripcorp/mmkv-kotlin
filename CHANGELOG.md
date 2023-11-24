@@ -2,6 +2,10 @@
 
 - Date format: YYYY-MM-dd
 
+## v1.2.9 / 2023-11-23
+
+* Based on `Kotlin 1.9.20`, `MMKV 1.3.2`
+
 ## v1.2.8 / 2023-08-28
 
 * Based on `Kotlin 1.9.10`, `MMKV 1.3.1`

@@ -6,16 +6,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "MMKV-Kotlin"
+rootProject.name = "mmkv-kotlin"
 include(":mmkv-kotlin")
-
-plugins {
-    id("com.gradle.enterprise") version("3.11.2")
-}
-
-gradleEnterprise {
-    buildScan {
-        termsOfServiceUrl = "https://gradle.com/terms-of-service"
-        termsOfServiceAgree = "yes"
-    }
-}

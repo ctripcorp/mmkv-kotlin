@@ -17,6 +17,7 @@
 package com.ctrip.flight.mmkv
 
 import cocoapods.MMKV.MMKV
+import kotlinx.cinterop.ExperimentalForeignApi
 import platform.Foundation.NSData
 
 /**
@@ -26,11 +27,14 @@ import platform.Foundation.NSData
 
 private fun String.asNSDataCryptKey(): NSData = encodeToByteArray().toNSData()
 
+@OptIn(ExperimentalForeignApi::class)
 actual fun defaultMMKV(): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV()!!)
 
+@OptIn(ExperimentalForeignApi::class)
 actual fun defaultMMKV(cryptKey: String): MMKV_KMP =
     MMKVImpl(MMKV.defaultMMKVWithCryptKey(cryptKey.asNSDataCryptKey())!!)
 
+@OptIn(ExperimentalForeignApi::class)
 actual fun mmkvWithID(
     mmapId: String,
     mode: MMKVMode,
@@ -53,7 +57,7 @@ actual fun mmkvWithID(
         )
         cryptKey == null && rootPath == null -> MMKV.mmkvWithID(
             mmapId,
-            mode.rawValue,
+            mode = mode.rawValue.toULong(),
         )
         else -> throw IllegalStateException("Impossible situation")
     }!!

@@ -17,16 +17,21 @@
 package com.ctrip.flight.mmkv
 
 import cocoapods.MMKV.MMKV
+import kotlinx.cinterop.ExperimentalForeignApi
 
 /**
  * iOS MMKV initialize function
  * @author yaqiao
  */
 
+@OptIn(ExperimentalForeignApi::class)
 fun initialize() = MMKV.initialize()
 
+@OptIn(ExperimentalForeignApi::class)
 fun initialize(rootDir: String): String = MMKV.initializeMMKV(rootDir)
 
+@OptIn(ExperimentalForeignApi::class)
 fun initialize(rootDir: String, logLevel: MMKVLogLevel): String = MMKV.initializeMMKV(rootDir, logLevel.rawValue)
 
+@OptIn(ExperimentalForeignApi::class)
 fun initialize(rootDir: String, groupDir: String, logLevel: MMKVLogLevel): String = MMKV.initializeMMKV(rootDir, groupDir, logLevel.rawValue)
