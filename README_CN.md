@@ -10,11 +10,11 @@ Kotlin Multiplatform Common (kts):
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.7")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.9")
 }
 ```
 
-当前版本依赖于 `Kotlin 1.9.10` 以及 `MMKV 1.3.1`。
+当前版本依赖于 `Kotlin 1.9.20` 以及 `MMKV 1.3.2`。
 
 纯 Android 平台（kts）：
 
@@ -92,7 +92,7 @@ import com.ctrip.flight.mmkv.initialize
 // In iOS source set
 fun initializeMMKV(rootDir: String) {
     initialize(rootDir)
-    Log.d("MMKV Path", rootDir)
+    println("MMKV Path: $rootDir")
 }
 ```
 

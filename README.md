@@ -16,7 +16,7 @@ dependencies {
 }
 ```
 
-Current version based on `Kotlin 1.9.10` and `MMKV 1.3.1`.
+Current version based on `Kotlin 1.9.20` and `MMKV 1.3.2`.
 
 Pure Android platform (kts):
 
@@ -94,7 +94,7 @@ import com.ctrip.flight.mmkv.initialize
 // In iOS source set
 fun initializeMMKV(rootDir: String) {
     initialize(rootDir)
-    Log.d("MMKV Path", rootDir)
+    println("MMKV Path: $rootDir")
 }
 ```
 
