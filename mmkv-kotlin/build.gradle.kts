@@ -10,7 +10,7 @@ plugins {
     signing
 }
 
-version = "1.2.9"
+version = "1.2.10"
 group = "com.ctrip.flight.mmkv"
 
 val mmkvVersion = "1.3.2"

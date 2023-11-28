@@ -27,6 +27,7 @@ actual fun defaultMMKV(): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV())
 
 actual fun defaultMMKV(cryptKey: String): MMKV_KMP = MMKVImpl(MMKV.defaultMMKV(MMKV.SINGLE_PROCESS_MODE, cryptKey))
 
+@JvmOverloads
 actual fun mmkvWithID(
     mmapId: String,
     mode: MMKVMode,
