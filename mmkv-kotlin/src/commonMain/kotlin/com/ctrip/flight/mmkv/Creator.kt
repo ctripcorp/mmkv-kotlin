@@ -16,8 +16,6 @@
 
 package com.ctrip.flight.mmkv
 
-import kotlin.jvm.JvmOverloads
-
 /**
  * MMKV create function common expect
  * @author yaqiao
@@ -27,7 +25,6 @@ expect fun defaultMMKV(): MMKV_KMP
 
 expect fun defaultMMKV(cryptKey: String): MMKV_KMP
 
-@JvmOverloads
 expect fun mmkvWithID(
     mmapId: String,
     mode: MMKVMode = MMKVMode.SINGLE_PROCESS,
