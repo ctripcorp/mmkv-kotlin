@@ -2,6 +2,10 @@
 
 - Date format: YYYY-MM-dd
 
+## v1.2.11 / 2024-01-08
+
+* Update Kotlin version to `1.9.22`
+
 ## v1.2.10 / 2023-11-28
 
 * Update Kotlin version to `1.9.21` for fixing this [issue](https://youtrack.jetbrains.com/issue/KT-62515)
