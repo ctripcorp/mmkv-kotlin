@@ -2,6 +2,10 @@
 
 - Date format: YYYY-MM-dd
 
+## v1.2.22 / 2024-04-30
+
+* Based on `Kotlin 1.9.23`, `MMKV 1.3.5`
+
 ## v1.2.11 / 2024-01-08
 
 * Update Kotlin version to `1.9.22`
