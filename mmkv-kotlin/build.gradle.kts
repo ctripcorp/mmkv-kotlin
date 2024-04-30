@@ -10,10 +10,10 @@ plugins {
     signing
 }
 
-version = "1.2.11"
+version = "1.2.12"
 group = "com.ctrip.flight.mmkv"
 
-val mmkvVersion = "1.3.2"
+val mmkvVersion = "1.3.5"
 
 kotlin {
     androidTarget {
@@ -38,8 +38,8 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "17.1.1"
-        osx.deploymentTarget = "14.1"
+        ios.deploymentTarget = "17.4.1"
+        osx.deploymentTarget = "14.2.1"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
@@ -138,9 +138,4 @@ publishing {
         useInMemoryPgpKeys(SIGNING_KEY_ID, SIGNING_KEY, SIGNING_PASSWORD)
         sign(publishing.publications)
     }
-}
-
-// TODO: remove after https://youtrack.jetbrains.com/issue/KT-46466 is fixed
-project.tasks.withType(AbstractPublishToMaven::class.java).configureEach {
-    dependsOn(project.tasks.withType(Sign::class.java))
 }

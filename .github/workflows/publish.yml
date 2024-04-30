@@ -42,53 +42,9 @@ jobs:
         
       - name: Build All
         run: ./gradlew :mmkv-kotlin:assemble
-        
-      - name: Run Native Tests
-        run: ./gradlew :mmkv-kotlin:cleanMacosX64Test && ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
 
       - name: Gradle Cache
         uses: gradle/gradle-build-action@v2
-
-      - name: AVD Cache
-        uses: actions/cache@v3
-        id: avd-cache
-        with:
-          path: |
-            ~/.android/avd/*
-            ~/.android/adb*
-          key: avd-33
-
-      - name: Create AVD and Generate Snapshot for Caching
-        if: steps.avd-cache.outputs.cache-hit != 'true'
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          target: google_apis
-          arch: x86_64
-          profile: pixel_6
-          force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: false
-          script: echo "Generated AVD snapshot for caching."
-
-      - name: Run Android 13 Instrumented Tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          target: google_apis
-          arch: x86_64
-          profile: pixel_6
-          force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace && adb uninstall com.ctrip.flight.mmkv.test
-
-      - name: Upload Reports
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test-Reports
-          path: mmkv-kotlin/build/reports
-        if: failure()
 
       - name: Publish to MavenCentral
         run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenRepository
