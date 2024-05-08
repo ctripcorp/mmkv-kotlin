@@ -1,6 +1,6 @@
 # MMKV for Kotlin Multiplatform
 
-MMKV for Kotlin Multiplatform 是对 [MMKV](https://github.com/Tencent/MMKV) 的 Kotlin API 封装，由携程机票移动端团队开发。当前支持 Android/iOS/macOS。
+MMKV-Kotlin 是对 [MMKV](https://github.com/Tencent/MMKV) 到 Kotlin Multiplatform 的移植。当前支持 Android/iOS/macOS。
 
 ## 使用指南
 
