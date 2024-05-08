@@ -2,7 +2,7 @@
 
 中文版本请参看[这里](README_CN.md)
 
-MMKV for Kotlin Multiplatform is a wrapper for [MMKV](https://github.com/Tencent/MMKV) using Kotlin API, developed by Ctrip Flight mobile team. Currently Android/iOS/macOS are supported.
+MMKV-Kotlin is a porting of [MMKV](https://github.com/Tencent/MMKV) to Kotlin Multiplatform. Currently Android/iOS/macOS are supported.
 
 ## Tutorial
 
