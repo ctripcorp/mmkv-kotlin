@@ -23,22 +23,22 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1
+        uses: gradle/wrapper-validation-action@v3
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 17
     
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/actions/setup-gradle@v3
 
       - name: Cache Build Tooling
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -51,17 +51,14 @@ jobs:
       - name: Run Native Tests
         run: ./gradlew :mmkv-kotlin:cleanMacosX64Test && ./gradlew :mmkv-kotlin:macosX64Test --stacktrace
 
-      - name: Gradle Cache
-        uses: gradle/gradle-build-action@v2
-
       - name: AVD Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: avd-cache
         with:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-33
+          key: avd-34
 
       - name: Create AVD and Generate Snapshot for Caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
@@ -91,7 +88,7 @@ jobs:
           script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace && adb uninstall com.ctrip.flight.mmkv.test
 
       - name: Upload Reports
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Test-Reports
           path: mmkv-kotlin/build/reports
