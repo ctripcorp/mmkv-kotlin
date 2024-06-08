@@ -2,7 +2,7 @@
 
 中文版本请参看[这里](README_CN.md)
 
-MMKV-Kotlin is a porting of [MMKV](https://github.com/Tencent/MMKV) to Kotlin Multiplatform. Currently Android/iOS/macOS are supported.
+MMKV-Kotlin is a porting of [MMKV](https://github.com/Tencent/MMKV) to Kotlin Multiplatform. Currently, Android/iOS/macOS are supported.
 
 ## Tutorial
 
@@ -16,7 +16,7 @@ dependencies {
 }
 ```
 
-Current version based on `Kotlin 1.9.23` and `MMKV 1.3.5`.
+Current version is based on `Kotlin 1.9.23` and `MMKV 1.3.5`.
 
 Pure Android platform (kts):
 
@@ -37,7 +37,7 @@ dependencies {
     implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.12")
 }
 ```
-Note, if your project is a Kotlin/Native executable program project of macOS or it supply a framework to a iOS application project directly, then you need to manually add dependency on MMKV, and may need add `linkerOpts` on MMKV and MMKVCore：
+Note, if your project is a Kotlin/Native executable program project of macOS, or it supplies a framework to an iOS application project directly, then you need to manually add the dependency of MMKV, and may need to add `linkerOpts` for MMKV and MMKVCore：
 
 ```kotlin
 kotlin {
@@ -72,7 +72,7 @@ kotlin {
 
 ### Initialization and Configure Root Path
 
-You can initialize MMKV when app or process initialization. [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) initialization API depends on [Context](https://developer.android.com/reference/android/content/Context). So, Android's initialization API is different from iOS.
+You can initialize MMKV when your app or the process initialization. [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/Android/MMKV) initialization API depends on [Context](https://developer.android.com/reference/android/content/Context). So, Android's initialization API is different with iOS.
 
 Android:
 
@@ -102,7 +102,7 @@ You also could call [MMKV-Android](https://github.com/Tencent/MMKV/tree/master/A
 
 ### CRUD Operations
 
-- MMKV has a **global instance**, you can use it directly:：
+- MMKV has a **global instance**, you can use it directly:
 
 ```kotlin
 import com.ctrip.flight.mmkv.defaultMMKV
@@ -139,7 +139,7 @@ fun demo() {
 }
 ```
 
-- **Deleting & Judging(Whether the key is exist):**
+- **Deleting & Judging (Whether the key is existed):**
 
 ```kotlin
 kv.removeValueForKey("Boolean")
@@ -151,7 +151,7 @@ println("allKeys: ${kv.allKeys()}")
 val hasBoolean = kv.containsKey("Boolean")
 ```
 
-- If different modules/logics need **isolated storage**, you can also create your own MMKV instance separately:
+- If a different modules/logics need **isolated storage**, you can also create your own MMKV instance separately:
 
 ```kotlin
 import com.ctrip.flight.mmkv.mmkvWithID
@@ -160,7 +160,7 @@ val kvWithMyId = mmkvWithID("MyID")
 kvWithMyId.set("Boolean", true)
 ```
 
-- If **multi-process accessing** is needed, you can set `MMKVMode.MULTI_PROCESS` on MMKV initialization:
+- If **multi-process accessing** is needed, you can set `MMKVMode.MULTI_PROCESS` when MMKV initialization:
 
 ```kotlin
 import com.ctrip.flight.mmkv.mmkvWithID
