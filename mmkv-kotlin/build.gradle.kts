@@ -2,23 +2,21 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
-    kotlin("multiplatform")
-    kotlin("native.cocoapods")
-    id("com.android.library")
-    id("kotlin-parcelize")
-    id("maven-publish")
+    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.cocoapods)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.maven.publish)
     signing
 }
 
-version = "1.2.12"
+version = "1.2.13"
 group = "com.ctrip.flight.mmkv"
 
-val mmkvVersion = "1.3.5"
-
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     androidTarget {
         publishLibraryVariants("release")
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
     }
     iosX64()
@@ -27,26 +25,22 @@ kotlin {
     macosX64()
     macosArm64()
 
-    targets.configureEach {
-        compilations.configureEach {
-            compilerOptions.configure {
-                freeCompilerArgs.add("-Xexpect-actual-classes")
-            }
-        }
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
     }
 
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "17.4.1"
-        osx.deploymentTarget = "14.2.1"
+        ios.deploymentTarget = "17.5.1"
+        osx.deploymentTarget = "14.4.1"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
         }
         pod(
             name = "MMKV",
-            version = mmkvVersion,
+            version = libs.versions.mmkv.get(),
         )
     }
     
@@ -61,16 +55,16 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("com.tencent:mmkv-static:$mmkvVersion")
+                api(libs.mmkv)
             }
         }
         val androidInstrumentedTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.2")
-                implementation("androidx.test:core:1.5.0")
-                implementation("androidx.test:runner:1.5.2")
-                implementation("androidx.test:rules:1.5.0")
+                implementation(libs.junit)
+                implementation(libs.androidx.test.core)
+                implementation(libs.androidx.test.runner)
+                implementation(libs.androidx.test.rules)
             }
         }
     }
@@ -78,7 +72,7 @@ kotlin {
 
 android {
     namespace = "com.ctrip.flight.mmkv"
-    compileSdk = 33
+    compileSdk = 35
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -103,7 +97,7 @@ publishing {
             licenses {
                 license {
                     name.set("The Apache License, Version 2.0")
-                    url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
                 }
             }
             developers {
