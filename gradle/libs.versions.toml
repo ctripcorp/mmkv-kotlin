@@ -1,7 +1,7 @@
 [versions]
 
 kotlin = "1.9.24"
-agp = "8.2.2"
+agp = "8.5.1"
 mmkv = "1.3.7"
 junit = "4.13.2"
 androidx-test = "1.6.1"
