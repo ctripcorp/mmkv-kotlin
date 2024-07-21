@@ -21,8 +21,8 @@ package com.ctrip.flight.mmkv
  * @author yaqiao
  */
 
-inline fun <T> MMKV_KMP.withOpen(block: MMKV_KMP.() -> T): T {
-    val result = block()
+inline fun <T> MMKV_KMP.withOpen(block: MMKV_KMP.() -> T): T = try {
+    block()
+} finally {
     close()
-    return result
 }
