@@ -10,7 +10,7 @@ plugins {
     signing
 }
 
-version = "1.2.13"
+version = "1.2.14"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
