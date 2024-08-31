@@ -18,7 +18,7 @@ env:
 jobs:
 
   build-mmkv-kotlin:
-    runs-on: macos-13
+    runs-on: macos-latest
     timeout-minutes: 60
 
     steps:
@@ -58,7 +58,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-34
+          key: avd-35
 
       - name: Create AVD and Generate Snapshot for Caching
         if: steps.avd-cache.outputs.cache-hit != 'true'
@@ -66,7 +66,7 @@ jobs:
         with:
           api-level: 35
           target: google_apis
-          arch: x86_64
+          arch: arm64-v8a
           profile: pixel_6
           emulator-build: 12265550
           force-avd-creation: false
@@ -79,7 +79,7 @@ jobs:
         with:
           api-level: 35
           target: google_apis
-          arch: x86_64
+          arch: arm64-v8a
           profile: pixel_6
           emulator-build: 12265550
           force-avd-creation: false
