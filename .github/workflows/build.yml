@@ -35,7 +35,7 @@ jobs:
           java-version: 17
     
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Cache Build Tooling
         uses: actions/cache@v4
@@ -68,24 +68,24 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          emulator-build: 11698152
+          emulator-build: 12265550
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           script: echo "Generated AVD snapshot for caching."
 
-      - name: Run Android 13 Instrumented Tests
+      - name: Run Android 14 Instrumented Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          emulator-build: 11698152
+          emulator-build: 12265550
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace && adb uninstall com.ctrip.flight.mmkv.test
+          script: ./gradlew :mmkv-kotlin:connectedDebugAndroidTest --stacktrace
 
       - name: Upload Reports
         uses: actions/upload-artifact@v4

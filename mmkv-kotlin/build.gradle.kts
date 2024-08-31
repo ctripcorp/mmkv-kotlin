@@ -10,7 +10,7 @@ plugins {
     signing
 }
 
-version = "1.2.13"
+version = "1.2.14"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -72,7 +72,7 @@ kotlin {
 
 android {
     namespace = "com.ctrip.flight.mmkv"
-    compileSdk = 35
+    compileSdk = 34
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
