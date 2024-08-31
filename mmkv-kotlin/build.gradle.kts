@@ -55,7 +55,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.mmkv)
+                api(libs.mmkv)
             }
         }
         val androidInstrumentedTest by getting {

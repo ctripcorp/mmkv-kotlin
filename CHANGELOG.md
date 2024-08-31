@@ -2,7 +2,7 @@
 
 - Date format: YYYY-MM-dd
 
-## v1.2.14/ 2024-08-24
+## v1.2.14/ 2024-08-31
 
 * Fixed the function `MMKV_KMP.withOpen`
 * Based on `Kotlin 2.0.20`, `MMKV 1.3.9`
