@@ -41,8 +41,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ~/.gradle
-            ~/.kotlin
+            ~/.gradle/caches
+            ~/.konan
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
         
       - name: Build All
