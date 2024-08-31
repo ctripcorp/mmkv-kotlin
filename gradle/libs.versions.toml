@@ -9,7 +9,7 @@ androidx-test-runner = "1.6.2"
 
 [libraries]
 
-mmkv = { group = "com.tencent", name = "mmkv-shared", version.ref = "mmkv" }
+mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkv" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
