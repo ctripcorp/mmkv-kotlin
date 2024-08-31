@@ -42,7 +42,7 @@ jobs:
         with:
           path: |
             ~/.gradle/caches
-            ~/.konan
+            ~/.kotlin
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
         
       - name: Build All
