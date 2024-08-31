@@ -18,7 +18,7 @@ env:
 jobs:
 
   build-mmkv-kotlin:
-    runs-on: macos-latest
+    runs-on: macos-13
     timeout-minutes: 60
 
     steps:
@@ -35,7 +35,7 @@ jobs:
           java-version: 17
     
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Cache Build Tooling
         uses: actions/cache@v4
@@ -66,8 +66,8 @@ jobs:
         with:
           api-level: 35
           target: google_apis
-          arch: arm64-v8a
-          profile: pixel_6
+          arch: x86_64
+          profile: pixel_8
           emulator-build: 12265550
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
@@ -79,8 +79,8 @@ jobs:
         with:
           api-level: 35
           target: google_apis
-          arch: arm64-v8a
-          profile: pixel_6
+          arch: x86_64
+          profile: pixel_8
           emulator-build: 12265550
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
