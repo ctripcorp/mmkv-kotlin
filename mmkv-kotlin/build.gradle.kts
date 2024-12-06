@@ -10,7 +10,7 @@ plugins {
     signing
 }
 
-version = "1.2.14"
+version = "1.2.15"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -32,8 +32,8 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "17.5.1"
-        osx.deploymentTarget = "14.4.1"
+        ios.deploymentTarget = "18.1.1"
+        osx.deploymentTarget = "15.1.1"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
@@ -48,38 +48,32 @@ kotlin {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
-        val androidMain by getting {
-            dependencies {
-                api(libs.mmkv)
-            }
+        androidMain.dependencies {
+            api(libs.mmkv)
         }
-        val androidInstrumentedTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-                implementation(libs.junit)
-                implementation(libs.androidx.test.core)
-                implementation(libs.androidx.test.runner)
-                implementation(libs.androidx.test.rules)
-            }
+        androidInstrumentedTest.dependencies {
+            implementation(kotlin("test-junit"))
+            implementation(libs.junit)
+            implementation(libs.androidx.test.core)
+            implementation(libs.androidx.test.runner)
+            implementation(libs.androidx.test.rules)
         }
     }
 }
 
 android {
     namespace = "com.ctrip.flight.mmkv"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
