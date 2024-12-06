@@ -31,7 +31,3 @@ expect fun setLogLevel(logLevel: MMKVLogLevel)
 expect fun version(): String
 
 expect fun unregisterHandler()
-
-
-
-expect fun log(msg: String)

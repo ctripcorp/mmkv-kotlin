@@ -14,7 +14,7 @@ dependencies {
 }
 ```
 
-当前版本依赖于 `Kotlin 2.1.0` 以及 `MMKV 2.0.1`。
+当前版本依赖于 `Kotlin 2.1.0` 以及 `MMKV 2.0.0`。
 
 纯 Android 平台（kts）：
 
@@ -60,7 +60,7 @@ kotlin {
     cocoapods {
         // ......
         pod(name = "MMKV") {
-            version = "2.0.1"
+            version = "2.0.0"
             moduleName = "MMKV"
         }
     }
