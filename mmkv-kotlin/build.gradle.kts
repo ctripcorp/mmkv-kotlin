@@ -10,7 +10,7 @@ plugins {
     signing
 }
 
-version = "1.2.16"
+version = "1.2.17"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -32,8 +32,8 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
-        ios.deploymentTarget = "18.1.1"
-        osx.deploymentTarget = "15.1.1"
+        ios.deploymentTarget = "18.4"
+        osx.deploymentTarget = "15.4"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
