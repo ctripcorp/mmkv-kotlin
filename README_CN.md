@@ -6,33 +6,38 @@ MMKV-Kotlin 是对 [MMKV](https://github.com/Tencent/MMKV) 到 Kotlin Multiplatf
 
 ### 在 Gradle 中使用 Maven 安装引入
 
-Kotlin Multiplatform Common (kts):
+**Kotlin Multiplatform Common (kts):**
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.18")
 }
 ```
 
-当前版本依赖于 `Kotlin 2.1.20` 以及 `MMKV 2.1.0`。
+当前版本依赖于 `Kotlin 2.2.0` 以及 `MMKV 2.2.2`。
 
-纯 Android 平台（kts）：
+**支持 iOS/macOS 的 Kotlin Multiplatform:**
+
+如果你的 Kotlin Multiplatform 支持 iOS 或者 macOS，并且它会被构建为一个 Apple framework 供一个 Xcode 工程消费。那么你需要在你的 Xcode
+工程中安装 [MMKV](https://github.com/Tencent/MMKV)，请参考[这里](https://github.com/Tencent/MMKV/wiki/iOS_setup_cn)。
+
+**纯 Android 平台（kts）：**
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.18")
 }
 ```
 
-Kotlin/Native on macOS：
+**Kotlin/Native on macOS：**
 
 ```kotlin
 dependencies { 
     // Intel 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.18")
     
     // Apple Silicon
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.18")
 }
 ```
 注意，如果你的工程为 macOS 的 Kotlin/Native 可执行程序工程，或者它直接向一个 iOS 应用程序工程提供 framework，那么您需要手动在工程中添加对 MMKV 的依赖，并可能需要添加对 MMKV 及 MMKVCore 的 `linkerOpts`：

@@ -8,33 +8,38 @@ MMKV-Kotlin is a porting of [MMKV](https://github.com/Tencent/MMKV) to Kotlin Mu
 
 ### Installation Via Maven in Gradle
 
-Kotlin Multiplatform Common (kts):
+**Kotlin Multiplatform Common (kts):**
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.18")
 }
 ```
 
-Current version is based on `Kotlin 2.1.20` and `MMKV 2.1.0`.
+Current version is based on `Kotlin 2.2.00` and `MMKV 2.2.2`.
 
-Pure Android platform (kts):
+**Kotlin Multiplatform for iOS/macOS applications:**
+
+If your Kotlin Multiplatform project supports iOS or macOS, and it would be built to an Apple framework that will be
+consumed by an Xcode project. You need to install [MMKV](https://github.com/Tencent/MMKV) into your Xcode project, please refer [that](https://github.com/Tencent/MMKV/wiki/iOS_setup).
+
+**Pure Android platform (kts):**
 
 ```kotlin
 dependencies {     
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.18")
 }
 ```
 
-Kotlin/Native on macOS：
+**Kotlin/Native on macOS：**
 
 ```kotlin
 dependencies { 
     // Intel Chip
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.18")
     
     // Apple Silicon
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.17")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.18")
 }
 ```
 Note, if your project is a Kotlin/Native executable program project of macOS, or it supplies a framework to an iOS application project directly, then you need to manually add the dependency of MMKV, and may need to add `linkerOpts` for MMKV and MMKVCore：
