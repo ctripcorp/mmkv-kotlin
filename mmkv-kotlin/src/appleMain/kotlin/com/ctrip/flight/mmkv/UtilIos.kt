@@ -14,29 +14,26 @@
  * limitations under the License.
  */
 
+@file:OptIn(ExperimentalForeignApi::class)
+
 package com.ctrip.flight.mmkv
 
 import cocoapods.MMKV.MMKV
 import kotlinx.cinterop.ExperimentalForeignApi
 
 /**
- * Other top-level function
+ * Other top-level functions
  * @author yaqiao
  */
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun backupOneToDirectory(
     mmapID: String, dstDir: String, rootPath: String?
 ): Boolean = MMKV.backupOneMMKV(mmapID, rootPath, dstDir)
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun pageSize(): Long = MMKV.pageSize().toLong()
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun setLogLevel(logLevel: MMKVLogLevel) = MMKV.setLogLevel(logLevel.rawValue)
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun version(): String = MMKV.version()
 
-@OptIn(ExperimentalForeignApi::class)
 actual fun unregisterHandler() = MMKV.unregiserHandler()

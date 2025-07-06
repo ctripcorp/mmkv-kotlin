@@ -1,6 +1,12 @@
 # MMKV-Kotlin Change Log
 
 - Date format: YYYY-MM-dd
+- 
+## v1.2.18/ 2025-07-06
+
+* Based on `Kotlin 2.2.0`, `MMKV 2.2.2`
+* Fixed a bug of function `initilize()`
+* All overload versions of function `initialize` could pass `null` as their parameter `rootDir`
 
 ## v1.2.17/ 2025-04-23
 
