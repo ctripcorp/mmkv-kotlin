@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
         
       - name: Build All
-        run: ./gradlew :mmkv-kotlin:assemble
+        run: pod repo update --verbose && ./gradlew :mmkv-kotlin:assemble
         
       - name: Run Native Tests
         run: ./gradlew :mmkv-kotlin:cleanMacosX64Test && ./gradlew :mmkv-kotlin:macosX64Test --stacktrace

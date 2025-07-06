@@ -41,10 +41,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle.kts') }}
         
       - name: Build All
-        run: ./gradlew :mmkv-kotlin:assemble
+        run: pod repo update --verbose && ./gradlew :mmkv-kotlin:assemble
 
       - name: Gradle Cache
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
 
       - name: Publish to MavenCentral
         run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenRepository
