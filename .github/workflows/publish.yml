@@ -43,8 +43,5 @@ jobs:
       - name: Build All
         run: pod repo update --verbose && ./gradlew :mmkv-kotlin:assemble
 
-      - name: Gradle Cache
-        uses: gradle/gradle-build-action@v3
-
       - name: Publish to MavenCentral
-        run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenRepository
+        run: ./gradlew :mmkv-kotlin:publishAllPublicationsToMavenCentralRepository
