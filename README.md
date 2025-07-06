@@ -8,7 +8,7 @@ MMKV-Kotlin is a porting of [MMKV](https://github.com/Tencent/MMKV) to Kotlin Mu
 
 ### Installation Via Maven in Gradle
 
-Kotlin Multiplatform Common (kts):
+**Kotlin Multiplatform Common (kts):**
 
 ```kotlin
 dependencies {     
@@ -18,12 +18,12 @@ dependencies {
 
 Current version is based on `Kotlin 2.2.00` and `MMKV 2.2.2`.
 
-Kotlin Multiplatform for iOS/macOS applications:
+**Kotlin Multiplatform for iOS/macOS applications:**
 
 If your Kotlin Multiplatform project supports iOS or macOS, and it would be built to an Apple framework that will be
 consumed by an Xcode project. You need to install [MMKV](https://github.com/Tencent/MMKV) into your Xcode project, please refer [that](https://github.com/Tencent/MMKV/wiki/iOS_setup).
 
-Pure Android platform (kts):
+**Pure Android platform (kts):**
 
 ```kotlin
 dependencies {     
@@ -31,7 +31,7 @@ dependencies {
 }
 ```
 
-Kotlin/Native on macOS：
+**Kotlin/Native on macOS：**
 
 ```kotlin
 dependencies { 

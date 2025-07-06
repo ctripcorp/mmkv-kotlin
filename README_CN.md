@@ -6,7 +6,7 @@ MMKV-Kotlin 是对 [MMKV](https://github.com/Tencent/MMKV) 到 Kotlin Multiplatf
 
 ### 在 Gradle 中使用 Maven 安装引入
 
-Kotlin Multiplatform Common (kts):
+**Kotlin Multiplatform Common (kts):**
 
 ```kotlin
 dependencies { 
@@ -16,12 +16,12 @@ dependencies {
 
 当前版本依赖于 `Kotlin 2.2.0` 以及 `MMKV 2.2.2`。
 
-支持 iOS/macOS 的 Kotlin Multiplatform:
+**支持 iOS/macOS 的 Kotlin Multiplatform:**
 
 如果你的 Kotlin Multiplatform 支持 iOS 或者 macOS，并且它会被构建为一个 Apple framework 供一个 Xcode 工程消费。那么你需要在你的 Xcode
 工程中安装 [MMKV](https://github.com/Tencent/MMKV)，请参考[这里](https://github.com/Tencent/MMKV/wiki/iOS_setup_cn)。
 
-纯 Android 平台（kts）：
+**纯 Android 平台（kts）：**
 
 ```kotlin
 dependencies { 
@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-Kotlin/Native on macOS：
+**Kotlin/Native on macOS：**
 
 ```kotlin
 dependencies { 
