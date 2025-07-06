@@ -16,7 +16,7 @@ dependencies {
 }
 ```
 
-Current version is based on `Kotlin 2.2.00` and `MMKV 2.2.2`.
+Current version is based on `Kotlin 2.2.0` and `MMKV 2.2.2`.
 
 **Kotlin Multiplatform for iOS/macOS applications:**
 
@@ -67,7 +67,7 @@ kotlin {
     cocoapods {
         // ......
         pod(name = "MMKV") {
-            version = "2.1.0"
+            version = "2.2.2"
             moduleName = "MMKV"
         }
     }

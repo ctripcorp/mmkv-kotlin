@@ -8,7 +8,8 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Some description for the Shared Module'
     spec.vendored_frameworks      = 'build/cocoapods/framework/MMKV_Kotlin.framework'
     spec.libraries                = 'c++'
-                
+    spec.ios.deployment_target    = '13.0'
+    spec.osx.deployment_target    = '10.15'
     spec.dependency 'MMKV', '2.2.2'
                 
     if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin.framework')
