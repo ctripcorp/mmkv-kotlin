@@ -32,6 +32,8 @@ kotlin {
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
+        ios.deploymentTarget = "13.0"
+        osx.deploymentTarget = "10.15"
         framework {
             baseName = "MMKV-Kotlin"
             isStatic = true
