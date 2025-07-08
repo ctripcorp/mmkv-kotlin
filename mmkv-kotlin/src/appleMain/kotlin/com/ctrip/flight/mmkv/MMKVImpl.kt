@@ -58,26 +58,87 @@ class MMKVImpl internal constructor(internal val platformMMKV: MMKV) : MMKV_KMP 
      * Read value
      */
 
+    @Deprecated(
+        message = "Renamed to 'getString' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getString(key, default)")
+    )
     override fun takeString(key: String, default: String): String = platformMMKV.getStringForKey(key, default) ?: default
 
+    @Deprecated(
+        message = "Renamed to 'getBoolean' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getBoolean(key, default)")
+    )
     override fun takeBoolean(key: String, default: Boolean): Boolean = platformMMKV.getBoolForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getInt' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getInt(key, default)")
+    )
     override fun takeInt(key: String, default: Int): Int = platformMMKV.getInt32ForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getLong' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getLong(key, default)")
+    )
     override fun takeLong(key: String, default: Long): Long = platformMMKV.getInt64ForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getFloat' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getFloat(key, default)")
+    )
     override fun takeFloat(key: String, default: Float): Float = platformMMKV.getFloatForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getDouble' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getDouble(key, default)")
+    )
     override fun takeDouble(key: String, default: Double): Double = platformMMKV.getDoubleForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getByteArray' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getByteArray(key, default)")
+    )
     override fun takeByteArray(key: String, default: ByteArray?): ByteArray? = platformMMKV.getDataForKey(key, default?.toNSData())?.toByteArray()
 
+    @Deprecated(
+        message = "Renamed to 'getUInt' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getUInt(key, default)")
+    )
     override fun takeUInt(key: String, default: UInt): UInt = platformMMKV.getUInt32ForKey(key, default)
 
+    @Deprecated(
+        message = "Renamed to 'getULong' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getULong(key, default)")
+    )
     override fun takeULong(key: String, default: ULong): ULong = platformMMKV.getUInt64ForKey(key, default)
 
     @OptIn(BetaInteropApi::class)
+    @Deprecated(
+        message = "Renamed to 'getStringSet' for clarity, as the 'take' prefix could be confusing.",
+        replaceWith = ReplaceWith("getStringSet(key, default)")
+    )
     override fun takeStringSet(key: String, default: Set<String>?): Set<String>? = platformMMKV.getObjectOfClass(NSSet.`class`()!!, key) as? Set<String> ?: default
+
+    override fun getString(key: String, default: String): String = platformMMKV.getStringForKey(key, default) ?: default
+
+    override fun getBoolean(key: String, default: Boolean): Boolean = platformMMKV.getBoolForKey(key, default)
+
+    override fun getInt(key: String, default: Int): Int = platformMMKV.getInt32ForKey(key, default)
+
+    override fun getLong(key: String, default: Long): Long = platformMMKV.getInt64ForKey(key, default)
+
+    override fun getFloat(key: String, default: Float): Float = platformMMKV.getFloatForKey(key, default)
+
+    override fun getDouble(key: String, default: Double): Double = platformMMKV.getDoubleForKey(key, default)
+
+    override fun getByteArray(key: String, default: ByteArray?): ByteArray? = platformMMKV.getDataForKey(key, default?.toNSData())?.toByteArray()
+
+    override fun getUInt(key: String, default: UInt): UInt = platformMMKV.getUInt32ForKey(key, default)
+
+    override fun getULong(key: String, default: ULong): ULong = platformMMKV.getUInt64ForKey(key, default)
+
+    @OptIn(BetaInteropApi::class)
+    override fun getStringSet(key: String, default: Set<String>?): Set<String>? = platformMMKV.getObjectOfClass(NSSet.`class`()!!, key) as? Set<String> ?: default
 
     /**
      * Remove value

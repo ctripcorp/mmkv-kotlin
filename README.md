@@ -116,22 +116,22 @@ fun demo() {
     val kv = defaultMMKV()
 
     kv.set("Boolean", true)
-    println("Boolean: ${kv.takeBoolean("Boolean")}")
+    println("Boolean: ${kv.getBoolean("Boolean")}")
 
     kv.set("Int", Int.MIN_VALUE)
-    println("Int: ${kv.takeInt("Int")}")
+    println("Int: ${kv.getInt("Int")}")
 
     kv.set("Long", Long.MAX_VALUE)
-    println("Long: ${kv.takeLong("Long")}")
+    println("Long: ${kv.getLong("Long")}")
 
     kv.set("Float", -3.14f)
-    println("Float: ${kv.takeFloat("Float")}")
+    println("Float: ${kv.getFloat("Float")}")
 
     kv.set("Double", Double.MIN_VALUE)
-    println("Double: ${kv.takeDouble("Double")}")
+    println("Double: ${kv.getDouble("Double")}")
 
     kv.set("String", "Hello from mmkv")
-    println("String: ${kv.takeString("String")}")
+    println("String: ${kv.getString("String")}")
 
     val bytes = byteArrayOf(
         'm'.code.toByte(), 
@@ -140,7 +140,7 @@ fun demo() {
         'v'.code.toByte(),
     )
     kv.set("ByteArray", bytes)
-    println("ByteArray: ${kv.takeByteArray("ByteArray")?.toString()}")
+    println("ByteArray: ${kv.getByteArray("ByteArray")?.toString()}")
 }
 ```
 
@@ -148,7 +148,7 @@ fun demo() {
 
 ```kotlin
 kv.removeValueForKey("Boolean")
-println("Boolean: ${kv.takeBoolean("Boolean")}")
+println("Boolean: ${kv.getBoolean("Boolean")}")
 
 kv.removeValuesForKeys(listOf("Int", "Long"))
 println("allKeys: ${kv.allKeys()}")
