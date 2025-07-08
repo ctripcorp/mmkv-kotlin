@@ -26,8 +26,18 @@ import kotlin.reflect.KClass
 
 operator fun MMKVImpl.set(key: String, value: Parcelable?) = platformMMKV.encode(key, value)
 
-fun <T : Parcelable> MMKVImpl.takeParcelable(
+fun <T : Parcelable> MMKVImpl.getParcelable(
     key: String,
     default: T? = null,
     clazz: KClass<T>? = null,
 ): T? = platformMMKV.decodeParcelable(key, clazz?.java, default)
+
+@Deprecated(
+    message = "Renamed to 'getParcelable' for clarity, as the 'take' prefix could be confusing.",
+    replaceWith = ReplaceWith("getParcelable(key, default, clazz)")
+)
+fun <T : Parcelable> MMKVImpl.takeParcelable(
+    key: String,
+    default: T? = null,
+    clazz: KClass<T>? = null,
+): T? = getParcelable(key, default, clazz)

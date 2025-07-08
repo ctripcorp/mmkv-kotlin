@@ -1,8 +1,12 @@
 # MMKV-Kotlin Change Log
 
 - Date format: YYYY-MM-dd
-- 
-## v1.2.18/ 2025-07-06
+
+## v1.3.0 / 2025-xx-xx
+
+* Deprecated all `takeXxx` functions, renamed to `getXxx` to avoid confusion
+
+## v1.2.18/ 2025-07-07
 
 * Based on `Kotlin 2.2.0`, `MMKV 2.2.2`
 * Fixed a bug of function `initilize()`

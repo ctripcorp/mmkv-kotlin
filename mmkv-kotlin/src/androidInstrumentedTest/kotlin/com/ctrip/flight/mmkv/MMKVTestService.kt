@@ -48,7 +48,7 @@ class MMKVTestService : Service() {
         val cmd = intent.getStringExtra(CMD_Key)
         when (cmd) {
             CMD_Update -> {
-                val value = mmkv.takeInt(SharedMMKVKey)
+                val value = mmkv.getInt(SharedMMKVKey)
                 mmkv[SharedMMKVKey] = value + 1
             }
             CMD_Lock -> mmkv.lock()
