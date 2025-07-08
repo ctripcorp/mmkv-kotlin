@@ -4,12 +4,12 @@
 
 ## v1.3.0 / 2025-xx-xx
 
-* Deprecated all `takeXxx` functions, renamed to `getXxx` to avoid confusion
+* Deprecated all `takeXxx` functions, renamed to `getXxx` to avoid confusion ([issue#29](https://github.com/ctripcorp/mmkv-kotlin/issues/29))
 
 ## v1.2.18/ 2025-07-07
 
 * Based on `Kotlin 2.2.0`, `MMKV 2.2.2`
-* Fixed a bug of function `initilize()`
+* Fixed a bug of function `initilize()` ([issue#44](https://github.com/ctripcorp/mmkv-kotlin/issues/44))
 * All overload versions of function `initialize` could pass `null` as their parameter `rootDir`
 
 ## v1.2.17/ 2025-04-23
