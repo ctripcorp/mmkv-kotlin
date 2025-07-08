@@ -90,10 +90,10 @@ class MMKVKotlinTestAndroid {
         val result = androidMMKV.set("Parcelable", testParcelable0)
         assertEquals(true, result)
 
-        val value0 = androidMMKV.takeParcelable("Parcelable", null, TestParcelable::class)
+        val value0 = androidMMKV.getParcelable("Parcelable", null, TestParcelable::class)
         assertEquals(testParcelable0, value0)
 
-        val value1 = androidMMKV.takeParcelable(MMKVKotlinTest.KEY_NOT_EXIST, null, TestParcelable::class)
+        val value1 = androidMMKV.getParcelable(MMKVKotlinTest.KEY_NOT_EXIST, null, TestParcelable::class)
         assertEquals(null, value1)
 
         val testParcelable1 = TestParcelable(
@@ -101,7 +101,7 @@ class MMKVKotlinTestAndroid {
             name = "Jerry",
             height = 180.0f,
         )
-        val value2 = androidMMKV.takeParcelable(MMKVKotlinTest.KEY_NOT_EXIST, testParcelable1, TestParcelable::class)
+        val value2 = androidMMKV.getParcelable(MMKVKotlinTest.KEY_NOT_EXIST, testParcelable1, TestParcelable::class)
         assertEquals(testParcelable1, value2)
     }
 
@@ -115,7 +115,7 @@ class MMKVKotlinTestAndroid {
         context.startService(intent)
 
         SystemClock.sleep(1000 * 3)
-        val intValue = mmkv.takeInt(MMKVTestService.SharedMMKVKey)
+        val intValue = mmkv.getInt(MMKVTestService.SharedMMKVKey)
         assertEquals(1024 + 1, intValue)
     }
 

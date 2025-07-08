@@ -33,7 +33,20 @@ operator fun MMKVImpl.set(key: String, value: NSDate) = platformMMKV.setDate(val
 
 operator fun MMKVImpl.set(key: String, value: NSObject?) = platformMMKV.setObject(value, key)
 
-fun MMKVImpl.takeNSDate(key: String, default: NSDate? = null): NSDate? = platformMMKV.getDateForKey(key, default)
+fun MMKVImpl.getNSDate(key: String, default: NSDate? = null): NSDate? = platformMMKV.getDateForKey(key, default)
 
 @OptIn(BetaInteropApi::class)
-fun MMKVImpl.takeObject(key: String, cls: ObjCClass): Any? = platformMMKV.getObjectOfClass(cls, key)
+fun MMKVImpl.getObject(key: String, cls: ObjCClass): Any? = platformMMKV.getObjectOfClass(cls, key)
+
+@Deprecated(
+    message = "Renamed to 'getNSDate' for clarity, as the 'take' prefix could be confusing.",
+    replaceWith = ReplaceWith("getNSDate(key, default)")
+)
+fun MMKVImpl.takeNSDate(key: String, default: NSDate? = null): NSDate? = getNSDate(key, default)
+
+@OptIn(BetaInteropApi::class)
+@Deprecated(
+    message = "Renamed to 'getObject' for clarity, as the 'take' prefix could be confusing.",
+    replaceWith = ReplaceWith("getObject(key, cls)")
+)
+fun MMKVImpl.takeObject(key: String, cls: ObjCClass): Any? = getObject(key, cls)

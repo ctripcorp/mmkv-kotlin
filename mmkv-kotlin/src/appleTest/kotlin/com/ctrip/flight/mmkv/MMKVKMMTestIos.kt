@@ -69,10 +69,10 @@ class MMKVKotlinTestIos {
         val result = mmkvImpl.set("NSDate", date)
         assertEquals(result, true)
 
-        val value0 = mmkvImpl.takeNSDate("NSDate")
+        val value0 = mmkvImpl.getNSDate("NSDate")
         assertEquals(value0?.timeIntervalSince1970, date.timeIntervalSince1970)
 
-        val value1 = mmkvImpl.takeNSDate(MMKVKotlinTest.KEY_NOT_EXIST)
+        val value1 = mmkvImpl.getNSDate(MMKVKotlinTest.KEY_NOT_EXIST)
         assertEquals(value1, null)
     }
 
@@ -86,10 +86,10 @@ class MMKVKotlinTestIos {
         val result = mmkvImpl.set("NSObject", list as? NSArray)
         assertEquals(result, true)
 
-        val value0 = mmkvImpl.takeObject("NSObject", NSArray.`class`()!!)
+        val value0 = mmkvImpl.getObject("NSObject", NSArray.`class`()!!)
         assertEquals(value0 as? List<String>, list)
 
-        val value1 = mmkvImpl.takeObject(MMKVKotlinTest.KEY_NOT_EXIST, NSArray.`class`()!!)
+        val value1 = mmkvImpl.getObject(MMKVKotlinTest.KEY_NOT_EXIST, NSArray.`class`()!!)
         assertEquals(value1, null)
     }
 
