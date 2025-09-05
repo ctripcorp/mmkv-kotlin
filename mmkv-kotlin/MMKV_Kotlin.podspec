@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin'
-    spec.version                  = '1.2.18'
+    spec.version                  = '1.3.0'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '13.0'
     spec.osx.deployment_target    = '10.15'
-    spec.dependency 'MMKV', '2.2.2'
+    spec.dependency 'MMKV', '2.2.3'
                 
     if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin.framework')
         raise "

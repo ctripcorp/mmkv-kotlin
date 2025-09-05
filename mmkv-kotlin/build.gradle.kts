@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
-version = "1.2.18"
+version = "1.3.0"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -66,18 +66,11 @@ kotlin {
 
 android {
     namespace = "com.ctrip.flight.mmkv"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-    }
-}
-
-dependencies {
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
 }
 
 mavenPublishing {
