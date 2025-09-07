@@ -10,7 +10,7 @@ MMKV-Kotlin 是对 [MMKV](https://github.com/Tencent/MMKV) 到 Kotlin Multiplatf
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.2.18")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin:1.3.0")
 }
 ```
 
@@ -25,7 +25,7 @@ dependencies {
 
 ```kotlin
 dependencies { 
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.2.18")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-android:1.3.0")
 }
 ```
 
@@ -34,10 +34,10 @@ dependencies {
 ```kotlin
 dependencies { 
     // Intel 芯片
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.2.18")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosx64:1.3.0")
     
     // Apple Silicon
-    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.2.18")
+    implementation("com.ctrip.flight.mmkv:mmkv-kotlin-macosarm64:1.3.0")
 }
 ```
 注意，如果你的工程为 macOS 的 Kotlin/Native 可执行程序工程，或者它直接向一个 iOS 应用程序工程提供 framework，那么您需要手动在工程中添加对 MMKV 的依赖，并可能需要添加对 MMKV 及 MMKVCore 的 `linkerOpts`：
@@ -65,7 +65,7 @@ kotlin {
     cocoapods {
         // ......
         pod(name = "MMKV") {
-            version = "2.2.2"
+            version = "2.2.3"
             moduleName = "MMKV"
         }
     }
