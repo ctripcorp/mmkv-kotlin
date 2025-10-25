@@ -2,7 +2,11 @@
 
 - Date format: YYYY-MM-dd
 
-## v1.3.0 / 2025-09-x05
+## v1.3.1 / 2025-10-25
+
+* Based on `Kotlin 2.2.21`, `MMKV 2.2.4`
+
+## v1.3.0 / 2025-09-05
 
 * Based on `Kotlin 2.2.10`, `MMKV 2.2.3`
 * Deprecated all `takeXxx` functions, renamed to `getXxx` to avoid confusion ([issue#29](https://github.com/ctripcorp/mmkv-kotlin/issues/29))
