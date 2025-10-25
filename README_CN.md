@@ -14,7 +14,7 @@ dependencies {
 }
 ```
 
-当前版本依赖于 `Kotlin 2.2.0` 以及 `MMKV 2.2.2`。
+当前版本依赖于 `Kotlin 2.2.21` 以及 `MMKV 2.2.4`。
 
 **支持 iOS/macOS 的 Kotlin Multiplatform:**
 
@@ -65,7 +65,7 @@ kotlin {
     cocoapods {
         // ......
         pod(name = "MMKV") {
-            version = "2.2.3"
+            version = "2.2.4"
             moduleName = "MMKV"
         }
     }

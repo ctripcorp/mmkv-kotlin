@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
-version = "1.3.0"
+version = "1.3.1"
 group = "com.ctrip.flight.mmkv"
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
