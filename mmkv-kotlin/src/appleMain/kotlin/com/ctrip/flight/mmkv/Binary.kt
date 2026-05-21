@@ -28,7 +28,7 @@ import platform.posix.memcpy
  * @author yaqiao
  */
 
-internal fun NSData.toByteArray(): ByteArray {
+fun NSData.toByteArray(): ByteArray {
     val size = length.toInt()
     return ByteArray(size).apply {
         if (size > 0) usePinned {

@@ -1,12 +1,12 @@
 [versions]
 
-kotlin = "2.2.21"
-agp = "8.12.3"
-mmkv = "2.2.4"
+kotlin = "2.3.21"
+agp = "9.0.1"
+mmkv = "2.4.0"
 junit = "4.13.2"
 androidx-test = "1.7.0"
 androidx-test-runner = "1.7.0"
-vanniktech-maven-publish = "0.34.0"
+vanniktech-maven-publish = "0.36.0"
 
 [libraries]
 
@@ -21,5 +21,5 @@ androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize" }
-android-library = { id = "com.android.library", version.ref = "agp" }
+android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish",  version.ref = "vanniktech-maven-publish" }

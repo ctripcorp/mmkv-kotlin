@@ -2,6 +2,11 @@
 
 - Date format: YYYY-MM-dd
 
+## v.1.3.2 / 2026-05-21
+
+* Based on `Kotlin 2.3.21`, `MMKV 2.4.0`
+* Removed target supports: `iosX64`, `macosX64`
+
 ## v1.3.1 / 2025-10-25
 
 * Based on `Kotlin 2.2.21`, `MMKV 2.2.4`

@@ -82,7 +82,7 @@ class MMKVKotlinTestIos {
     fun testNSObject() {
         val mmkvImpl = mmkvTest.mmkv as? MMKVImpl ?: throw IllegalStateException("MMKV type has some problems")
         val list = listOf("Aa", "Bb", "Cc")
-        
+
         val result = mmkvImpl.set("NSObject", list as? NSArray)
         assertEquals(result, true)
 

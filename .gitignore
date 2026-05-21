@@ -9,6 +9,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-/MMKV-Kotlin/build
+mmkv-kotlin/build
+mmkv-kotlin-test/build
 .podspec
 .kotlin

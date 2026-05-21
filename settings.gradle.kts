@@ -1,5 +1,6 @@
 rootProject.name = "mmkv-kotlin"
 include(":mmkv-kotlin")
+include(":mmkv-kotlin-test")
 
 pluginManagement {
     repositories {
@@ -10,7 +11,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
     repositories {
         google()
         mavenCentral()

@@ -1,28 +1,22 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
-
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.cocoapods)
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
-version = "1.3.1"
+version = "1.3.2"
 group = "com.ctrip.flight.mmkv"
 
-@OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     jvmToolchain(21)
-    androidTarget {
-        publishLibraryVariants("release")
-        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+    android {
+        namespace = "com.ctrip.flight.mmkv"
+        compileSdk = 37
+        minSdk = 23
     }
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
-    macosX64()
     macosArm64()
 
     compilerOptions {
@@ -48,28 +42,9 @@ kotlin {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
-        commonTest.dependencies {
-            implementation(kotlin("test"))
-        }
         androidMain.dependencies {
             api(libs.mmkv)
         }
-        androidInstrumentedTest.dependencies {
-            implementation(kotlin("test-junit"))
-            implementation(libs.junit)
-            implementation(libs.androidx.test.core)
-            implementation(libs.androidx.test.runner)
-            implementation(libs.androidx.test.rules)
-        }
-    }
-}
-
-android {
-    namespace = "com.ctrip.flight.mmkv"
-    compileSdk = 36
-    defaultConfig {
-        minSdk = 23
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 }
 

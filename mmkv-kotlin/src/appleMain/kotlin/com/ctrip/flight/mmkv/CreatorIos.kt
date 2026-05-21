@@ -57,7 +57,7 @@ actual fun mmkvWithID(
         )
         cryptKey == null && rootPath == null -> MMKV.mmkvWithID(
             mmapId,
-            mode = mode.rawValue.toULong(),
+            mode = mode.rawValue,
         )
         else -> throw IllegalStateException("Impossible situation")
     }!!

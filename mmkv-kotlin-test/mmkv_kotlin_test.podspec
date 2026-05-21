@@ -1,33 +1,33 @@
 Pod::Spec.new do |spec|
-    spec.name                     = 'mmkv_kotlin'
+    spec.name                     = 'mmkv_kotlin_test'
     spec.version                  = '1.3.2'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'Some description for the Shared Module'
-    spec.vendored_frameworks      = 'build/cocoapods/framework/MMKV_Kotlin.framework'
+    spec.vendored_frameworks      = 'build/cocoapods/framework/MMKV_Kotlin_Test.framework'
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '13.0'
     spec.osx.deployment_target    = '10.15'
     spec.dependency 'MMKV', '2.4.0'
-    if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin.framework')
+    if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin_Test.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin_Test.framework')
         raise "
-        Kotlin framework 'MMKV_Kotlin' doesn't exist yet, so a proper Xcode project can't be generated.
+        Kotlin framework 'MMKV_Kotlin_Test' doesn't exist yet, so a proper Xcode project can't be generated.
         'pod install' should be executed after running ':generateDummyFramework' Gradle task:
-            ./gradlew :mmkv-kotlin:generateDummyFramework
+            ./gradlew :mmkv-kotlin-test:generateDummyFramework
         Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
     end
     spec.xcconfig = {
         'ENABLE_USER_SCRIPT_SANDBOXING' => 'NO',
     }
     spec.pod_target_xcconfig = {
-        'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin',
-        'PRODUCT_MODULE_NAME' => 'MMKV_Kotlin',
+        'KOTLIN_PROJECT_PATH' => ':mmkv-kotlin-test',
+        'PRODUCT_MODULE_NAME' => 'MMKV_Kotlin_Test',
     }
     spec.script_phases = [
         {
-            :name => 'Build mmkv_kotlin',
+            :name => 'Build mmkv_kotlin_test',
             :execution_position => :before_compile,
             :shell_path => '/bin/sh',
             :script => <<-SCRIPT
