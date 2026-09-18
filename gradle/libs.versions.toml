@@ -1,12 +1,12 @@
 [versions]
 
-kotlin = "2.3.21"
-agp = "9.0.1"
-mmkv = "2.4.0"
+kotlin = "2.4.20"
+agp = "9.4.1"
+mmkv = "2.4.2"
 junit = "4.13.2"
 androidx-test = "1.7.0"
 androidx-test-runner = "1.7.0"
-vanniktech-maven-publish = "0.36.0"
+vanniktech-maven-publish = "0.37.0"
 
 [libraries]
 

@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.ManagedVirtualDevice
+
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.cocoapods)
@@ -5,7 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
 }
 
-version = "1.3.2"
+version = "1.3.3"
 
 kotlin {
     jvmToolchain(21)
@@ -15,6 +17,19 @@ kotlin {
         minSdk = 23
         withDeviceTest {
             instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            animationsDisabled = true
+            managedDevices {
+                localDevices {
+                    create("pixel10Api37") {
+                        device = "Pixel 10"
+                        sdkVersion = 37
+                        systemImageSource = "google"
+                        require64Bit = true
+                        testedAbi = "arm64-v8a"
+                        pageAlignment = ManagedVirtualDevice.PageAlignment.FORCE_16KB_PAGES
+                    }
+                }
+            }
         }
     }
     iosArm64()
