@@ -25,7 +25,6 @@ kotlin {
                         sdkVersion = 37
                         systemImageSource = "google"
                         require64Bit = true
-                        testedAbi = "arm64-v8a"
                         pageAlignment = ManagedVirtualDevice.PageAlignment.FORCE_16KB_PAGES
                     }
                 }
