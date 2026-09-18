@@ -55,6 +55,11 @@ jobs:
             ${{ env.ANDROID_HOME }}/system-images/android-37.0/google_apis_ps16k/arm64-v8a
           key: gmd-pixel10Api37-google-ps16k-arm64-v8a
 
+      - name: Accept SDK Licenses and Install System Image
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "system-images;android-37.0;google_apis_ps16k;arm64-v8a"
+
       - name: Run Android 17 Instrumented Tests
         run: >
           ./gradlew :mmkv-kotlin-test:pixel10Api37AndroidDeviceTest --stacktrace
