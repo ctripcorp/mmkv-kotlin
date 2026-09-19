@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '13.0'
     spec.osx.deployment_target    = '10.15'
-    spec.dependency 'MMKV', '2.4.0'
+    spec.dependency 'MMKV', '2.4.2'
     if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin.framework')
         raise "
         Kotlin framework 'MMKV_Kotlin' doesn't exist yet, so a proper Xcode project can't be generated.

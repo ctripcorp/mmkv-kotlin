@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'mmkv_kotlin_test'
-    spec.version                  = '1.3.2'
+    spec.version                  = '1.3.3'
     spec.homepage                 = 'Link to the Shared Module homepage'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
     spec.libraries                = 'c++'
     spec.ios.deployment_target    = '13.0'
     spec.osx.deployment_target    = '10.15'
-    spec.dependency 'MMKV', '2.4.0'
+    spec.dependency 'MMKV', '2.4.2'
     if !Dir.exist?('build/cocoapods/framework/MMKV_Kotlin_Test.framework') || Dir.empty?('build/cocoapods/framework/MMKV_Kotlin_Test.framework')
         raise "
         Kotlin framework 'MMKV_Kotlin_Test' doesn't exist yet, so a proper Xcode project can't be generated.
