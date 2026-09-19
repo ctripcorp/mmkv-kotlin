@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
-version = "1.3.2"
+version = "1.3.3"
 group = "com.ctrip.flight.mmkv"
 
 kotlin {
